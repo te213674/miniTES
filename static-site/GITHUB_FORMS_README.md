@@ -1,159 +1,81 @@
 # Система заявок через GitHub Issues
 
-## Обзор
+Эта система отправляет заявки с сайта напрямую в GitHub Issues репозитория miniTES.
 
-Реализована система приёма заявок с сайта, которая использует GitHub Issues для хранения заявок и GitHub Actions для отправки email уведомлений.
+## Как это работает
 
-## Архитектура
-
-```
-┌─────────────────┐    POST     ┌──────────────────┐    triggers    ┌─────────────────┐
-│   Форма на сайте │  ────────>  │  GitHub API      │  ──────────>  │  GitHub Actions │
-│                 │             │  (создание Issue) │              │                 │
-└─────────────────┘             └──────────────────┘              └─────────────────┘
-                                                                                 │
-                                                                                 │ sends email
-                                                                                 ▼
-                                                                      ┌─────────────────┐
-                                                                      │  info@minites.ru│
-                                                                      │  (через Яндекс) │
-                                                                      └─────────────────┘
-```
-
-## Компоненты
-
-### 1. JavaScript модуль (`static-site/js/github-forms.js`)
-
-- Отправляет data-форм напрямую в GitHub API
-- Использует персональный токен GitHub для аутентификации (устанавливается через data-api-token атрибут)
-- Создаёт Issue с структурированными данными
-- Обрабатывает успех/ошибки отправки
-
-**Настройка токена:**
-1. Создайте Personal Access Token на GitHub (Settings → Developer settings → Personal access tokens)
-2. Добавьте токен в contact.html:
-   ```html
-   <html lang="ru" data-api-token="YOUR_GITHUB_TOKEN">
-   ```
-
-### 2. GitHub Actions workflow (`.github/workflows/email-notification.yml`)
-
-- Срабатывает при создании нового Issue
-- Отправляет email на `info@minites.ru` через SMTP Яндекса
-- Использует секреты `YANDEX_EMAIL` и `YANDEX_PASSWORD`
-
-### 3. Страница контактов (`static-site/contact.html`)
-
-- Форма для отправки заявок
-- Поля: имя, телефон, email, компания, сообщение
-- Подключает `github-forms.js` для отправки
-
-## Типы заявок
-
-### 1. Основная заявка (contactForm)
-
-**Заголовок Issue:** `Заявка с сайта: {Имя}`
-
-**Метки:** `заявка-на-КП`, `контакты`
-
-**Содержимое:**
-- Контактная информация (имя, телефон, email, компания)
-- Сообщение
-- Временная метка
-
-### 2. Заявка на анализ газа (analysisForm)
-
-**Заголовок Issue:** `Анализ газа от: {Имя}`
-
-**Метки:** `анализ-газа`, `инженерный-запрос`
-
-**Содержимое:**
-- Контактная информация
-- Имя файла (файл не прикрепляется, только имя)
-- Комментарий
-- Предупреждение о необходимости связаться с клиентом для получения файла
+1. Пользователь заполняет форму на сайте
+2. JavaScript отправляет данные в GitHub API и создаёт Issue
+3. GitHub Actions автоматически отправляет email уведомление на info@minites.ru
 
 ## Настройка
 
-### 1. Добавить секреты в репозиторий
+### 1. Добавьте GitHub Personal Access Token
 
-1. Откройте репозиторий на GitHub
-2. Settings → Secrets and variables → Actions
-3. Добавьте два секрета:
+**Важно:** Не добавляйте токен напрямую в код! GitHub Secret Scanning заблокирует пуш.
 
-| Name | Value |
-|------|-------|
-| `YANDEX_EMAIL` | `bigmazzzzzy@yandex.ru` |
-| `YANDEX_PASSWORD` | `Yvg676999)` |
+#### Способ 1: Через секрет GitHub Actions (рекомендуется)
 
-### 2. Проверка работы
+1. Создайте Personal Access Token:
+   - Перейдите в Settings → Developer settings → Personal access tokens → Tokens (classic)
+   - Нажмите "Generate new token (classic)"
+   - Выберите scope: `public_repo` (или `repo` для приватных репозиториев)
+   - Скопируйте токен (начинается на `ghp_`)
+
+2. Добавьте токен как секрет GitHub Actions:
+   - Перейдите в репозиторий → Settings → Secrets and variables → Actions
+   - Нажмите "New repository secret"
+   - Name: `GITHUB_API_TOKEN`
+   - Value: ваш токен (ghp_...)
+   - Нажмите "Add secret"
+
+3. Модифицируйте workflow `.github/workflows/email-notification.yml`:
+   - Добавьте шаг для передачи токена в переменную окружения
+   - Токен будет доступен в GitHub Pages через переменную окружения
+
+#### Способ 2: Локальная вставка (для тестирования)
+
+Для локального тестирования можно временно добавить токен в `contact.html`:
+```html
+<html lang="ru" data-api-token="ghp_your_token_here">
+```
+
+**Не коммитьте токен в репозиторий!** Добавьте `contact.html` в `.gitignore` или используйте `.env` файл.
+
+### 2. Добавьте SMTP секреты для email уведомлений
+
+1. Перейдите в Settings → Secrets and variables → Actions
+2. Добавьте два секрета:
+   - `YANDEX_EMAIL`: `bigmazzzzzy@yandex.ru`
+   - `YANDEX_PASSWORD`: пароль приложения Яндекс (не от аккаунта!)
+
+### 3. Проверьте работу
 
 1. Откройте `contact.html` в браузере
 2. Заполните форму
-3. Нажмите "Отправить заявку"
-4. Проверьте:
-   - В репозитории создался новый Issue
-   - На `info@minites.ru` пришло email уведомление
+3. Проверьте:
+   - Issue создан в репозитории
+   - Email пришёл на info@minites.ru
+
+## Структура Issues
+
+### Заявка на КП
+- Labels: `заявка-на-КП`, `контакты`
+- Title: `Заявка с сайта: {Имя}`
+
+### Анализ газа
+- Labels: `анализ-газа`, `инженерный-запрос`
+- Title: `Анализ газа от: {Имя}`
+
+## Файлы
+
+- `static-site/js/github-forms.js` - JavaScript модуль для отправки форм
+- `static-site/contact.html` - страница с формой контактов
+- `.github/workflows/email-notification.yml` - workflow для email уведомлений
+- `GITHUB_SETUP_INSTRUCTIONS.md` - подробная инструкция по настройке
 
 ## Безопасность
 
-### GitHub токен
-
-- Токен встроен в JavaScript код
-- Имеет доступ только к репозиторию `te213674/miniTES`
-- Разрешения: только создание Issue (scope: `public_repo`)
-
-### Рекомендации по безопасности
-
-1. **Ограничьте scope токена** - используйте минимально необходимые разрешения
-2. **Мониторинг** - периодически проверяйте использование токена
-3. **Ротация** - при компрометации немедленно отзовите токен и создайте новый
-
-## Интеграция с другими формами
-
-Для добавления отправки в GitHub к другим формам:
-
-1. Добавьте форме `id="yourFormId"`
-2. В `github-forms.js` добавьте обработчик:
-
-```javascript
-const yourForm = document.getElementById('yourFormId');
-if (yourForm) {
-    yourForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const formData = new FormData(this);
-        
-        const data = {
-            title: `Заголовок: ${formData.get('fieldName')}`,
-            body: `Содержимое: ${formData.get('message')}`,
-            labels: ['label1', 'label2']
-        };
-        
-        await createGitHubIssue(data);
-    });
-}
-```
-
-## Troubleshooting
-
-### Заявки не создаются
-
-1. Проверьте консоль браузера на наличие ошибок
-2. Убедитесь, что токен действителен
-3. Проверьте CORS политики (для локальной разработки)
-
-### Email не приходят
-
-1. Проверьте логи GitHub Actions: Actions → Send Email Notification on New Issue
-2. Убедитесь, что секреты правильно добавлены
-3. Проверьте настройки безопасности Яндекса (должен быть разрешён SMTP)
-
-### Ошибки CORS
-
-Для локальной разработки может потребоваться:
-- Использовать локальный сервер (не file:// протокол)
-- Настроить прокси для запросов к GitHub API
-
-## Лицензия
-
-Внутренняя разработка для проекта miniTES.
+- Токен не должен храниться в репозитории
+- Используйте GitHub Secrets для хранения токена
+- GitHub Secret Scanning автоматически обнаружит и заблокирует пуш с токеном

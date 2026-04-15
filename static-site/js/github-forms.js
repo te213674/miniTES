@@ -16,9 +16,14 @@ const GITHUB_CONFIG = {
 document.addEventListener('DOMContentLoaded', function() {
     const tokenElement = document.querySelector('[data-api-token]');
     if (tokenElement) {
-        GITHUB_CONFIG.token = tokenElement.getAttribute('data-api-token');
-    } else {
-        console.warn('GitHub API token not found. Add data-api-token attribute to your HTML.');
+        const token = tokenElement.getAttribute('data-api-token');
+        // Не используем токен, если это заглушка
+        if (token && token !== 'YOUR_GITHUB_TOKEN') {
+            GITHUB_CONFIG.token = token;
+        }
+    }
+    if (!GITHUB_CONFIG.token) {
+        console.warn('GitHub API token not found. Add data-api-token attribute to your HTML or set GITHUB_API_TOKEN secret.');
     }
 });
 
