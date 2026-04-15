@@ -1,0 +1,21 @@
+# Secret files
+.env
+*.env
+ADD_TOKEN_SECRET.md
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node modules
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
