@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель - миниТЭЦ Калькулятор</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Экран загрузки/проверки -->
+    <div id="loading-screen" class="flex items-center justify-center min-h-screen">
+        <div class="text-center">
+            <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600 mx-auto mb-4"></div>
+            <p class="text-gray-600">Проверка аутентификации...</p>
+        </div>
+    </div>
+
+    <!-- Основной контент (скрыт до проверки) -->
+    <div id="main-content" class="hidden">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <header class="mb-8">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h1 class="text-4xl font-bold text-gray-800 mb-2">Админ-панель</h1>
+                    <p class="text-gray-600">Управление моделями оборудования и конфигурациями майнинг-ферм</p>
+                </div>
+                <div class="flex gap-3">
+                    <a href="/" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
+                        Калькулятор
+                    </a>
+                    <button id="logout-btn" class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition">
+                        Выйти
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Вкладки навигации -->
+        <div class="mb-6">
+            <div class="border-b border-gray-200">
+                <nav class="-mb-px flex space-x-8">
+                    <button onclick="switchTab('equipment')" id="tab-equipment" class="border-blue-500 text-blue-600 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                        Оборудование ГПУ
+                    </button>
+                    <button onclick="switchTab('mining')" id="tab-mining" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                        Майнинг-фермы
+                    </button>
+                    <button onclick="switchTab('leads')" id="tab-leads" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                        Заявки (лиды)
+                    </button>
+                </nav>
+            </div>
+        </div>
+
+        <div id="section-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Оборудование ГПУ -->
+            <div id="section-equipment" class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Модели ГПУ</h2>
+                
+                <!-- Форма добавления/редактирования -->
+                <form id="equipment-form" class="mb-6 space-y-4">
+                    <input type="hidden" id="equipment-id">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Название *</label>
+                            <input type="text" id="equipment-name" required
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Производитель *</label>
+                            <input type="text" id="equipment-manufacturer" required
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Мощность, кВт *</label>
+                            <input type="number" id="equipment-power" required step="10" min="50"
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Расход газа, м³/кВт·ч *</label>
+                            <input type="number" id="equipment-gas" required step="0.01" min="0.1" max="1"
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Стоимость, руб *</label>
+                            <input type="number" id="equipment-price" required step="100000" min="1000000"
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Аренда/мес, руб *</label>
+                            <input type="number" id="equipment-rent" required step="10000" min="50000"
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
+                            Сохранить
+                        </button>
+                        <button type="button" id="cancel-equipment" class="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600 transition hidden">
+                            Отмена
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Список оборудования -->
+                <div id="equipment-list" class="space-y-3"></div>
+            </div>
+
+            <!-- Майнинг-фермы -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Конфигурации майнинг-ферм</h2>
+                
+                <!-- Форма добавления/редактирования -->
+                <form id="mining-form" class="mb-6 space-y-4">
+                    <input type="hidden" id="mining-id">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Название</label>
+                        <input type="text" id="mining-name" value="Ферма 100кВт"
+                               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Мощность, кВт</label>
+                            <input type="number" id="mining-power" value="100" step="10" min="50"
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Выручка, руб/кВт·ч *</label>
+                            <input type="number" id="mining-revenue" required step="0.1" min="1" max="10"
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Капзатраты на 1 кВт, руб *</label>
+                        <input type="number" id="mining-capex" required step="1000" min="10000"
+                               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div class="flex gap-2">
+                        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
+                            Сохранить
+                        </button>
+                        <button type="button" id="cancel-mining" class="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600 transition hidden">
+                            Отмена
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Список конфигураций -->
+                <div id="mining-list" class="space-y-3"></div>
+            </div>
+        </div>
+
+        <!-- Раздел с лидами (на всю ширину) -->
+        <div id="section-leads" class="hidden mt-8">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Заявки от клиентов</h2>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Дата</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Имя</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Телефон</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Источник</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Статус</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Действия</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leads-list" class="bg-white divide-y divide-gray-200">
+                        </tbody>
+                    </table>
+                </div>
+                <div id="no-leads" class="text-center py-8 text-gray-500 hidden">
+                    Пока нет заявок
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Переключение вкладок
+        function switchTab(tab) {
+            const gridSection = document.getElementById('section-grid');
+            const leadsSection = document.getElementById('section-leads');
+            
+            // Показываем/скрываем секции
+            if (tab === 'leads') {
+                gridSection.classList.add('hidden');
+                leadsSection.classList.remove('hidden');
+                loadLeads();
+            } else {
+                gridSection.classList.remove('hidden');
+                leadsSection.classList.add('hidden');
+            }
+            
+            // Обновляем стили кнопок
+            const tabs = ['equipment', 'mining', 'leads'];
+            tabs.forEach(t => {
+                const tabBtn = document.getElementById(`tab-${t}`);
+                if (t === tab) {
+                    tabBtn.classList.remove('border-transparent', 'text-gray-500');
+                    tabBtn.classList.add('border-blue-500', 'text-blue-600');
+                } else {
+                    tabBtn.classList.remove('border-blue-500', 'text-blue-600');
+                    tabBtn.classList.add('border-transparent', 'text-gray-500');
+                }
+            });
+        }
+
+        // Загрузка лидов
+        async function loadLeads() {
+            try {
+                const response = await fetch('/api/admin/leads');
+                const data = await response.json();
+                renderLeadsList(data.data);
+            } catch (error) {
+                console.error('Ошибка загрузки лидов:', error);
+            }
+        }
+
+        // Отображение списка лидов
+        function renderLeadsList(leads) {
+            const list = document.getElementById('leads-list');
+            const noLeads = document.getElementById('no-leads');
+            
+            if (leads.length === 0) {
+                list.innerHTML = '';
+                noLeads.classList.remove('hidden');
+                return;
+            }
+            
+            noLeads.classList.add('hidden');
+            list.innerHTML = leads.map(item => `
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        ${new Date(item.created_at).toLocaleDateString('ru-RU')}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${item.name}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${item.phone}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${item.email}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${item.source}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
+                            ${item.status === 'new' ? 'bg-green-100 text-green-800' : 
+                              item.status === 'processed' ? 'bg-yellow-100 text-yellow-800' : 
+                              'bg-gray-100 text-gray-800'}">
+                            ${item.status === 'new' ? 'Новая' : 
+                              item.status === 'processed' ? 'В работе' : 'Завершена'}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <select onchange="updateLeadStatus(${item.id}, this.value)" class="border border-gray-300 rounded px-2 py-1 text-sm">
+                            <option value="new" ${item.status === 'new' ? 'selected' : ''}>Новая</option>
+                            <option value="processed" ${item.status === 'processed' ? 'selected' : ''}>В работе</option>
+                            <option value="completed" ${item.status === 'completed' ? 'selected' : ''}>Завершена</option>
+                        </select>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // Обновление статуса лида
+        async function updateLeadStatus(id, status) {
+            try {
+                const response = await fetch(`/api/admin/leads/${id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ status })
+                });
+                const result = await response.json();
+                if (result.success) {
+                    loadLeads(); // Перезагружаем список
+                }
+            } catch (error) {
+                console.error('Ошибка обновления статуса:', error);
+            }
+        }
+
+        // Загрузка оборудования
+        async function loadEquipment() {
+            try {
+                const response = await fetch('/api/admin/equipment-models');
+                const data = await response.json();
+                renderEquipmentList(data.data);
+            } catch (error) {
+                console.error('Ошибка загрузки оборудования:', error);
+            }
+        }
+
+        // Отображение списка оборудования
+        function renderEquipmentList(equipment) {
+            const list = document.getElementById('equipment-list');
+            list.innerHTML = equipment.map(item => `
+                <div class="border rounded-lg p-4 hover:shadow-md transition">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-bold text-lg">${item.name}</h3>
+                            <p class="text-sm text-gray-600">${item.manufacturer}</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="editEquipment(${item.id})" class="text-blue-600 hover:text-blue-800">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                                </svg>
+                            </button>
+                            <button onclick="deleteEquipment(${item.id})" class="text-red-600 hover:text-red-800">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 mt-3 text-sm">
+                        <div><span class="text-gray-600">Мощность:</span> <span class="font-semibold">${item.power_kw} кВт</span></div>
+                        <div><span class="text-gray-600">Расход газа:</span> <span class="font-semibold">${item.gas_consumption_per_kwh} м³/кВт·ч</span></div>
+                        <div><span class="text-gray-600">Стоимость:</span> <span class="font-semibold">${(item.purchase_price / 1000000).toFixed(1)} млн руб</span></div>
+                        <div><span class="text-gray-600">Аренда:</span> <span class="font-semibold">${(item.rent_rate_month / 1000).toFixed(0)} тыс. руб/мес</span></div>
+                        <div><span class="text-gray-600">Обслуживание:</span> <span class="font-semibold">${item.service_cost_per_kwh} rub/кВт·ч</span></div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Редактирование оборудования
+        function editEquipment(id) {
+            fetch(`/api/admin/equipment-models`)
+                .then(response => response.json())
+                .then(data => {
+                    const item = data.data.find(e => e.id === id);
+                    if (item) {
+                        document.getElementById('equipment-id').value = item.id;
+                        document.getElementById('equipment-name').value = item.name;
+                        document.getElementById('equipment-manufacturer').value = item.manufacturer;
+                        document.getElementById('equipment-power').value = item.power_kw;
+                        document.getElementById('equipment-gas').value = item.gas_consumption_per_kwh;
+                        document.getElementById('equipment-price').value = item.purchase_price;
+                        document.getElementById('equipment-rent').value = item.rent_rate_month;
+                        document.getElementById('cancel-equipment').classList.remove('hidden');
+                    }
+                });
+        }
+
+        // Удаление оборудования
+        function deleteEquipment(id) {
+            if (confirm('Вы уверены, что хотите удалить эту модель?')) {
+                fetch(`/api/admin/equipment-models/${id}`, { method: 'DELETE' })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) loadEquipment();
+                    });
+            }
+        }
+
+        // Сохранение оборудования
+        document.getElementById('equipment-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const id = document.getElementById('equipment-id').value;
+            const data = {
+                name: document.getElementById('equipment-name').value,
+                manufacturer: document.getElementById('equipment-manufacturer').value,
+                power_kw: parseFloat(document.getElementById('equipment-power').value),
+                gas_consumption_per_kwh: parseFloat(document.getElementById('equipment-gas').value),
+                purchase_price: parseFloat(document.getElementById('equipment-price').value),
+                rent_rate_month: parseFloat(document.getElementById('equipment-rent').value)
+            };
+
+            const url = id ? `/api/admin/equipment-models/${id}` : '/api/admin/equipment-models';
+            const method = id ? 'PUT' : 'POST';
+
+            try {
+                const response = await fetch(url, {
+                    method,
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                const result = await response.json();
+                if (result.success) {
+                    loadEquipment();
+                    resetEquipmentForm();
+                }
+            } catch (error) {
+                console.error('Ошибка:', error);
+            }
+        });
+
+        // Сброс формы оборудования
+        function resetEquipmentForm() {
+            document.getElementById('equipment-form').reset();
+            document.getElementById('equipment-id').value = '';
+            document.getElementById('cancel-equipment').classList.add('hidden');
+        }
+
+        document.getElementById('cancel-equipment').addEventListener('click', resetEquipmentForm);
+
+        // Загрузка конфигураций майнинга
+        async function loadMiningConfigs() {
+            try {
+                const response = await fetch('/api/admin/mining-configs');
+                const data = await response.json();
+                renderMiningList(data.data);
+            } catch (error) {
+                console.error('Ошибка загрузки конфигураций:', error);
+            }
+        }
+
+        // Отображение списка конфигураций
+        function renderMiningList(configs) {
+            const list = document.getElementById('mining-list');
+            list.innerHTML = configs.map(item => `
+                <div class="border rounded-lg p-4 hover:shadow-md transition">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-bold text-lg">${item.name}</h3>
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="editMining(${item.id})" class="text-blue-600 hover:text-blue-800">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                                </svg>
+                            </button>
+                            <button onclick="deleteMining(${item.id})" class="text-red-600 hover:text-red-800">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 mt-3 text-sm">
+                        <div><span class="text-gray-600">Мощность:</span> <span class="font-semibold">${item.power_kw} кВт</span></div>
+                        <div><span class="text-gray-600">Выручка:</span> <span class="font-semibold">${item.revenue_per_kwh} руб/кВт·ч</span></div>
+                        <div><span class="text-gray-600">Капзатраты:</span> <span class="font-semibold">${(item.capex_per_kw / 1000).toFixed(0)} тыс. руб/кВт</span></div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Редактирование майнинг-конфигурации
+        function editMining(id) {
+            fetch(`/api/admin/mining-configs`)
+                .then(response => response.json())
+                .then(data => {
+                    const item = data.data.find(m => m.id === id);
+                    if (item) {
+                        document.getElementById('mining-id').value = item.id;
+                        document.getElementById('mining-name').value = item.name;
+                        document.getElementById('mining-power').value = item.power_kw;
+                        document.getElementById('mining-revenue').value = item.revenue_per_kwh;
+                        document.getElementById('mining-capex').value = item.capex_per_kw;
+                        document.getElementById('cancel-mining').classList.remove('hidden');
+                    }
+                });
+        }
+
+        // Удаление майнинг-конфигурации
+        function deleteMining(id) {
+            if (confirm('Вы уверены, что хотите удалить эту конфигурацию?')) {
+                fetch(`/api/admin/mining-configs/${id}`, { method: 'DELETE' })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) loadMiningConfigs();
+                    });
+            }
+        }
+
+        // Сохранение майнинг-конфигурации
+        document.getElementById('mining-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const id = document.getElementById('mining-id').value;
+            const data = {
+                name: document.getElementById('mining-name').value,
+                power_kw: parseFloat(document.getElementById('mining-power').value),
+                revenue_per_kwh: parseFloat(document.getElementById('mining-revenue').value),
+                capex_per_kw: parseFloat(document.getElementById('mining-capex').value)
+            };
+
+            const url = id ? `/api/admin/mining-configs/${id}` : '/api/admin/mining-configs';
+            const method = id ? 'PUT' : 'POST';
+
+            try {
+                const response = await fetch(url, {
+                    method,
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                const result = await response.json();
+                if (result.success) {
+                    loadMiningConfigs();
+                    resetMiningForm();
+                }
+            } catch (error) {
+                console.error('Ошибка:', error);
+            }
+        });
+
+        // Сброс формы майнинга
+        function resetMiningForm() {
+            document.getElementById('mining-form').reset();
+            document.getElementById('mining-id').value = '';
+            document.getElementById('cancel-mining').classList.add('hidden');
+        }
+
+        document.getElementById('cancel-mining').addEventListener('click', resetMiningForm);
+
+        // Выход
+        document.getElementById('logout-btn').addEventListener('click', async function() {
+            try {
+                await fetch('/api/admin/logout', { method: 'POST' });
+                localStorage.removeItem('adminToken');
+                window.location.href = '/admin/login';
+            } catch (error) {
+                console.error('Ошибка выхода:', error);
+                localStorage.removeItem('adminToken');
+                window.location.href = '/admin/login';
+            }
+        });
+
+        // Проверка аутентификации при загрузке
+        async function checkAuth() {
+            const token = localStorage.getItem('adminToken');
+            if (!token) {
+                window.location.href = '/admin/login';
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/admin/verify', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const result = await response.json();
+
+                if (result.success) {
+                    document.getElementById('loading-screen').classList.add('hidden');
+                    document.getElementById('main-content').classList.remove('hidden');
+                    // Загружаем данные только после успешной аутентификации
+                    loadEquipment();
+                    loadMiningConfigs();
+                } else {
+                    localStorage.removeItem('adminToken');
+                    window.location.href = '/admin/login';
+                }
+            } catch (error) {
+                localStorage.removeItem('adminToken');
+                window.location.href = '/admin/login';
+            }
+        }
+
+        checkAuth();
+    </script>
+</div>
+</body>
+</html>

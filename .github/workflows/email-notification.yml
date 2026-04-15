@@ -1,0 +1,34 @@
+name: Send Email Notification on New Issue
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send email via Yandex SMTP
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.yandex.ru
+          server_port: 465
+          username: ${{ secrets.YANDEX_EMAIL }}
+          password: ${{ secrets.YANDEX_PASSWORD }}
+          subject: 'Новая заявка с сайта miniTES: ${{ github.event.issue.title }}'
+          body: |
+            Получена новая заявка с сайта miniTES.
+            
+            Заголовок: ${{ github.event.issue.title }}
+            Ссылка на Issue: ${{ github.event.issue.html_url }}
+            Автор: ${{ github.event.issue.user.login }}
+            Дата создания: ${{ github.event.issue.created_at }}
+            
+            Описание:
+            ${{ github.event.issue.body }}
+            
+            --
+            Это письмо автоматически сгенерировано GitHub Actions
+          to: info@minites.ru
+          from: ${{ secrets.YANDEX_EMAIL }}
+          content_type: text/plain

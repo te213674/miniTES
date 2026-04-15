@@ -1,0 +1,69 @@
+{
+  "equipment": [
+    {
+      "id": 1,
+      "name": "GZE 100",
+      "manufacturer": "GazEcos",
+      "power_kw": 100,
+      "gas_consumption_per_kwh": 0.25,
+      "purchase_price": 3500000,
+      "rent_rate_month": 50000,
+      "service_cost_per_kwh": 0.5
+    },
+    {
+      "id": 2,
+      "name": "GZE 200",
+      "manufacturer": "GazEcos",
+      "power_kw": 200,
+      "gas_consumption_per_kwh": 0.23,
+      "purchase_price": 6500000,
+      "rent_rate_month": 90000,
+      "service_cost_per_kwh": 0.45
+    },
+    {
+      "id": 3,
+      "name": "GZE 300",
+      "manufacturer": "GazEcos",
+      "power_kw": 300,
+      "gas_consumption_per_kwh": 0.22,
+      "purchase_price": 9000000,
+      "rent_rate_month": 130000,
+      "service_cost_per_kwh": 0.4
+    },
+    {
+      "id": 4,
+      "name": "GZE 500",
+      "manufacturer": "GazEcos",
+      "power_kw": 500,
+      "gas_consumption_per_kwh": 0.21,
+      "purchase_price": 14000000,
+      "rent_rate_month": 200000,
+      "service_cost_per_kwh": 0.35
+    },
+    {
+      "id": 5,
+      "name": "Далеан ЭГ100",
+      "manufacturer": "Далеан",
+      "power_kw": 100,
+      "gas_consumption_per_kwh": 0.26,
+      "purchase_price": 3200000,
+      "rent_rate_month": 45000,
+      "service_cost_per_kwh": 0.55
+    },
+    {
+      "id": 6,
+      "name": "Далеан ЭГ200",
+      "manufacturer": "Далеан",
+      "power_kw": 200,
+      "gas_consumption_per_kwh": 0.24,
+      "purchase_price": 6000000,
+      "rent_rate_month": 85000,
+      "service_cost_per_kwh": 0.5
+    }
+  ],
+  "mining_config": {
+    "power_kw": 100,
+    "revenue_per_kwh": 3.5,
+    "capex_per_kw": 50000
+  }
+}
