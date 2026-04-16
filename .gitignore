@@ -2,6 +2,7 @@
 .env
 *.env
 ADD_TOKEN_SECRET.md
+static-site/contact.html
 
 # OS files
 .DS_Store
