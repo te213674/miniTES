@@ -25,7 +25,7 @@
 2. Добавьте токен как секрет GitHub Actions:
    - Перейдите в репозиторий → Settings → Secrets and variables → Actions
    - Нажмите "New repository secret"
-   - Name: `GITHUB_API_TOKEN`
+   - Name: `GIT_API_TOKEN`
    - Value: ваш токен (ghp_...)
    - Нажмите "Add secret"
 

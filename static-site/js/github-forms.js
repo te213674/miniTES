@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     if (!GITHUB_CONFIG.token) {
-        console.warn('GitHub API token not found. Add data-api-token attribute to your HTML or set GITHUB_API_TOKEN secret.');
+        console.warn('GitHub API token not found. Add data-api-token attribute to your HTML or set GIT_API_TOKEN secret.');
     }
 });
 
