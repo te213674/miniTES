@@ -3,173 +3,267 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Калькулятор энергосервисного контракта | миниТЭЦ - Расчёт тарифа на электроэнергию</title>
     
-    <!-- Meta Description -->
-    <meta name="description" content="Онлайн-калькулятор энергосервисного контракта от миниТЭЦ. Расчёт тарифа на электроэнергию от газопоршневых установок с учётом майнинг-ферм. Экономия до 30% от сетевого тарифа.">
+    <!-- SEO Meta -->
+    <title>Мини-ТЭЦ под ключ: электричество на 30–40% дешевле | miniTES</title>
+    <meta name="description" content="Электричество для вашего предприятия на 30–40% дешевле сетевого тарифа. Аренда мини-ТЭС: вы платите за кВт·ч, а не за оборудование. Работаем по всей России.">
+    <meta name="keywords" content="мини тэц, дешевое электричество, аренда электростанции, снижение затрат на электроэнергию, газопоршневая установка, энергосервис">
+    <meta name="author" content="miniTES">
+    <link rel="canonical" href="https://minites.ru/">
     
-    <!-- Keywords -->
-    <meta name="keywords" content="энергосервисный контракт, калькулятор тарифа, газопоршневые установки, ГПУ, миниТЭЦ, экономия электроэнергии, майнинг фермы, энергоснабжение">
-    
-    <!-- Author -->
-    <meta name="author" content="миниТЭЦ">
-    
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://minites.ru/calculator">
-    <meta property="og:title" content="Калькулятор энергосервисного контракта | миниТЭЦ">
-    <meta property="og:description" content="Рассчитайте свой тариф на электроэнергию и узнайте, сколько можно сэкономить с энергосервисным контрактом от миниТЭЦ">
-    <meta property="og:image" content="https://minites.ru/images/calculator-og.jpg">
+    <meta property="og:url" content="https://minites.ru/">
+    <meta property="og:title" content="miniTES — Электричество на 30–40% дешевле для вашего бизнеса">
+    <meta property="og:description" content="Аренда мини-ТЭС под ключ. Вы платите только за кВт·ч — по цене ниже сетевого тарифа. Без инвестиций в оборудование.">
+    <meta property="og:locale" content="ru_RU">
     
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://minites.ru/calculator">
-    <meta property="twitter:title" content="Калькулятор энергосервисного контракта | миниТЭЦ">
-    <meta property="twitter:description" content="Рассчитайте свой тариф на электроэнергию и узнайте, сколько можно сэкономить с энергосервисным контрактом от миниТЭЦ">
-    <meta property="twitter:image" content="https://minites.ru/images/calculator-twitter.jpg">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
     
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "miniTES",
+        "url": "https://minites.ru",
+        "description": "Мини-ТЭЦ под ключ: электричество на 30-40% дешевле сетевого тарифа",
+        "logo": "https://minites.ru/images/logo.svg",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "info@minites.ru",
+            "contactType": "sales"
+        },
+        "sameAs": []
+    }
+    </script>
+    
+    <!-- Scripts (CDN) -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    
-    <style>
-        .slider-thumb::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            background: #3b82f6;
-            cursor: pointer;
-            border-radius: 50%;
-        }
-        .slider-thumb::-moz-range-thumb {
-            width: 20px;
-            height: 20px;
-            background: #3b82f6;
-            cursor: pointer;
-            border-radius: 50%;
-        }
-    </style>
 </head>
-<body class="bg-gray-50 min-h-screen">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-md">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center">
-                    <a href="index.html" class="text-2xl font-bold text-blue-600">миниТЭЦ</a>
+<body>
+
+<!-- ============================================
+     NAVIGATION
+     ============================================ -->
+<nav class="navbar">
+    <div class="container">
+        <a href="index.html" class="navbar-brand">mini<span>TES</span></a>
+        
+        <ul class="navbar-nav">
+            <li><a href="#how-it-works">Как это работает</a></li>
+            <li><a href="#calculator">Калькулятор</a></li>
+            <li><a href="#services">Что входит</a></li>
+            <li><a href="#options">Варианты</a></li>
+            <li><a href="#faq">Вопросы</a></li>
+            <li><a href="contact.html" class="navbar-cta">Связаться</a></li>
+        </ul>
+        
+        <button class="hamburger" aria-label="Меню">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu">
+    <a href="#how-it-works">Как это работает</a>
+    <a href="#calculator">Калькулятор</a>
+    <a href="#services">Что входит в цену</a>
+    <a href="#options">Варианты сотрудничества</a>
+    <a href="#risks">Риски</a>
+    <a href="#numbers">Цифры</a>
+    <a href="#faq">Вопросы и ответы</a>
+    <a href="contact.html">Контакты</a>
+</div>
+
+
+<!-- ============================================
+     HERO SECTION
+     ============================================ -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="fade-in-left">
+                <div class="hero-badge">Работаем по всей России</div>
+                <h1>
+                    Ваша электроэнергия может стоить<br>
+                    на <span class="highlight">30–40% дешевле.</span><br>
+                    И вам для этого ничего не нужно покупать.
+                </h1>
+                <p class="lead">
+                    Мы строим электростанцию рядом с вашим предприятием. 
+                    Вы платите только за киловатт-часы — по цене ниже сетевого тарифа. 
+                    Всё остальное — наша головная боль.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#calculator" class="btn btn-primary btn-lg">Рассчитать свою выгоду →</a>
+                    <a href="#how-it-works" class="btn btn-secondary btn-lg">Как это работает</a>
                 </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="text-gray-700 hover:text-blue-600">Главная</a>
-                    <a href="#calculator" class="text-gray-700 hover:text-blue-600">Калькулятор</a>
-                    <a href="#about" class="text-gray-700 hover:text-blue-600">О нас</a>
-                    <a href="contact.html" class="text-gray-700 hover:text-blue-600">Контакты</a>
+            </div>
+            
+            <div class="fade-in-right">
+                <!-- Визуальный элемент: карточка с цифрой экономии -->
+                <div style="background:white; border-radius:1rem; padding:2rem; box-shadow:var(--shadow-xl); border-left:4px solid var(--color-accent);">
+                    <p style="font-size:0.875rem; color:var(--color-text-muted); margin-bottom:0.5rem; text-transform:uppercase; letter-spacing:0.05em;">Пример экономики</p>
+                    <p style="font-size:2.5rem; font-weight:800; color:var(--color-primary-dark); line-height:1;">
+                        −180 000 ₽<span style="font-size:1.25rem; color:var(--color-text-light);"> / мес</span>
+                    </p>
+                    <p style="font-size:0.9375rem; color:var(--color-text-light); margin:0;">
+                        Завод потреблением 500 кВт при работе в 2 смены
+                    </p>
+                    <hr style="border:none; border-top:1px solid var(--color-border); margin:1rem 0;">
+                    <div style="display:flex; justify-content:space-between; font-size:0.875rem;">
+                        <span style="color:var(--color-text-muted);">Сетевой тариф:</span>
+                        <strong>7.20 ₽/кВт·ч</strong>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; font-size:0.875rem;">
+                        <span style="color:var(--color-text-muted);">Наш тариф:</span>
+                        <strong style="color:var(--color-success);">4.50 ₽/кВт·ч</strong>
+                    </div>
                 </div>
             </div>
         </div>
-    </nav>
+    </div>
+</section>
 
-    <div class="container mx-auto px-4 py-8">
-        <!-- Header -->
-        <header class="mb-8">
-            <h1 class="text-4xl font-bold text-gray-800 mb-2">Калькулятор энергосервисного контракта</h1>
-            <p class="text-gray-600">Расчёт тарифа на электроэнергию от газопоршневых установок с учётом майнинг-ферм</p>
-        </header>
 
-        <!-- Schema.org микроразметка -->
-        <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "WebApplication",
-          "name": "Калькулятор энергосервисного контракта миниТЭЦ",
-          "description": "Онлайн-калькулятор для расчёта тарифа на электроэнергию от газопоршневых установок с учётом майнинг-ферм",
-          "url": "https://minites.ru/calculator",
-          "applicationCategory": "BusinessApplication",
-          "operatingSystem": "Any",
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "RUB"
-          },
-          "featureList": [
-            "Расчёт тарифа на электроэнергию",
-            "Учёт майнинг-ферм",
-            "Анализ профиля нагрузки",
-            "Расчёт окупаемости оборудования",
-            "Сравнение с сетевым тарифом"
-          ]
-        }
-        </script>
+<!-- ============================================
+     PROBLEM SECTION
+     ============================================ -->
+<section class="section section-alt" id="problem">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="label">Проблема</span>
+            <h2>Сетевой тариф растёт каждый год. Вы не можете это контролировать.</h2>
+            <p>И каждый рост тарифа — это прямое удорожание вашей продукции. Альтернативы нет? Есть.</p>
+        </div>
+        
+        <div class="problem-grid stagger-children">
+            <div class="problem-card">
+                <div class="problem-icon">📈</div>
+                <h3>Тарифы растут быстрее инфляции</h3>
+                <p>За последние 5 лет сетевые тарифы для промышленности выросли на 40–60%. Тренс не меняется.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">⚡</div>
+                <h3>Зависимость от монополии</h3>
+                <p>Один поставщик, одна цена, никаких альтернатив. Вы платите то, что вам выставляют.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">💸</div>
+                <h3>Себестоимость продукции растёт</h3>
+                <p>Дорогая электроэнергия = менее конкурентная продукция = упущенная прибыль.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <!-- Input Section -->
-            <div class="lg:col-span-1">
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <h2 class="text-xl font-semibold mb-6 text-gray-800">Параметры расчёta</h2>
+
+<!-- ============================================
+     HOW IT WORKS
+     ============================================ -->
+<section class="section" id="how-it-works">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="label">Просто</span>
+            <h2>Три шага до дешёвого электричества</h2>
+            <p>Никакой сложной бюрократии с вашей стороны. Мы делаем всё сами.</p>
+        </div>
+        
+        <div class="steps-grid">
+            <div class="step-card fade-in">
+                <div class="step-number">1</div>
+                <h3>Вы оставляете заявку</h3>
+                <p>Рассказываете о своём предприятии: сколько потребляете, какой график работы. Мы оцениваем потенциал экономии.</p>
+            </div>
+            <div class="step-card fade-in">
+                <div class="step-number">2</div>
+                <h3>Мы считаем вашу выгоду</h3>
+                <p>Готовим индивидуальное предложение: точный тариф, срок окупаемости, ежемесячный платёж. Вы видите цифры до любых решений.</p>
+            </div>
+            <div class="step-card fade-in">
+                <div class="step-number">3</div>
+                <h3>Строим — вы платите меньше</h3>
+                <p>Проектируем, доставляем, строим, запускаем. Вы начинаете получать электричество по нашей цене — ниже сетевого тарифа.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     CALCULATOR SECTION
+     ============================================ -->
+<section class="section calculator-section" id="calculator">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="label">Бесплатно</span>
+            <h2>Узнайте свою выгоду за 30 секунд</h2>
+            <p>Введите свои данные — получите расчёт экономии, тариф и срок окупаемости.</p>
+        </div>
+        
+        <div id="calculator-container">
+            <div class="calculator-grid">
+                <!-- Input Section -->
+                <div class="calculator-input-card">
+                    <h3 class="calculator-title">Параметры расчёта</h3>
                     
-                    <form id="calculator-form" class="space-y-6">
+                    <form id="calculator-form" class="calculator-form">
                         <!-- Выбор модели ГПУ -->
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">
-                                Модель ГПУ
-                            </label>
-                            <select id="equipment-model" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <div class="form-group">
+                            <label class="form-label" for="equipment-model">Модель ГПУ</label>
+                            <select id="equipment-model" class="form-select">
                                 <option value="">Загрузка...</option>
                             </select>
                         </div>
 
                         <!-- Тариф на газ -->
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                        <div class="form-group">
+                            <label class="form-label">
                                 Тариф на газ: <span id="gas-tariff-value">8.5</span> руб/м³
                             </label>
                             <input type="range" id="gas-tariff" min="7" max="12" step="0.1" value="8.5" 
-                                   class="w-full slider-thumb">
+                                   class="form-range">
                         </div>
 
                         <!-- Сетевой тариф -->
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                        <div class="form-group">
+                            <label class="form-label">
                                 Сетевой тариф: <span id="grid-tariff-value">6.2</span> руб/кВт·ч
                             </label>
                             <input type="range" id="grid-tariff" min="4" max="12" step="0.1" value="6.2" 
-                                   class="w-full slider-thumb">
+                                   class="form-range">
                         </div>
 
-                        <!-- Маржа компании -->
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">
-                                Маржа компании: <span id="margin-value">15</span>%
+                        <!-- Максимальная мощность -->
+                        <div class="form-group">
+                            <label class="form-label">
+                                Максимальная мощность: <span id="max-power-value">200</span> кВт
                             </label>
-                            <input type="range" id="company-margin" min="5" max="30" step="1" value="15" 
-                                   class="w-full slider-thumb">
-                        </div>
-
-                        <!-- Срок контракта -->
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">
-                                Срок контракта: <span id="contract-term-value">60</span> мес.
-                            </label>
-                            <input type="range" id="contract-term" min="12" max="120" step="12" value="60" 
-                                   class="w-full slider-thumb">
+                            <input type="range" id="max-power" min="200" max="600" step="50" value="200" 
+                                   class="form-range">
                         </div>
 
                         <!-- Количество майнинг-ферм -->
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                        <div class="form-group">
+                            <label class="form-label">
                                 Количество майнинг-ферм (100 кВт): <span id="mining-farms-value">0</span>
                             </label>
                             <input type="range" id="mining-farms" min="0" max="5" step="1" value="0" 
-                                   class="w-full slider-thumb">
-                            <p class="text-xs text-gray-500 mt-1">Фермы сглаживают график нагрузки и снижают тариф</p>
+                                   class="form-range">
+                            <p class="form-hint">Фермы сглаживают график нагрузки и снижают тариф</p>
                         </div>
 
                         <!-- Профиль нагрузки -->
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">
-                                Профиль нагрузки
-                            </label>
-                            <select id="load-profile" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <div class="form-group">
+                            <label class="form-label" for="load-profile">Профиль нагрузки</label>
+                            <select id="load-profile" class="form-select">
                                 <option value="1shift">1 смена (8:00-17:00)</option>
                                 <option value="2shifts">2 смены (8:00-20:00)</option>
                                 <option value="3shifts">3 смены (24/7)</option>
@@ -177,177 +271,506 @@
                             </select>
                         </div>
 
-                    <!-- Кнопка расчёта -->
-                    <button type="submit" 
-                            class="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 transition duration-200 font-semibold">
-                        Рассчитать тариф
-                    </button>
+                        <!-- Кнопка расчёта -->
+                        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
+                            Рассчитать тариф
+                        </button>
 
-                    <!-- Кнопка экспорта PDF (скрыта до расчёта) -->
-                    <button id="export-pdf-btn" class="w-full bg-green-600 text-white py-3 px-4 rounded-md hover:bg-green-700 transition duration-200 font-semibold hidden">
-                        Скачать PDF-отчёт
-                    </button>
+                        <!-- Кнопка экспорта PDF (скрыта до расчёта) -->
+                        <button id="export-pdf-btn" class="btn btn-secondary" style="width:100%; justify-content:center; display:none;">
+                            Скачать PDF-отчёт
+                        </button>
                     </form>
                 </div>
-            </div>
 
-            <!-- Results Section -->
-            <div class="lg:col-span-2">
-                <!-- Main Results -->
-                <div id="results" class="hidden">
-                    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
-                        <h2 class="text-2xl font-bold text-gray-800 mb-4">Результаты расчёта</h2>
-                        
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                            <div class="bg-blue-50 p-4 rounded-lg">
-                                <p class="text-sm text-gray-600">Тариф для клиента</p>
-                                <p class="text-2xl font-bold text-blue-600"><span id="tariff-value">0</span> руб/кВт·ч</p>
-                            </div>
-                            <div class="bg-green-50 p-4 rounded-lg">
-                                <p class="text-sm text-gray-600">Экономия vs сеть</p>
-                                <p class="text-2xl font-bold text-green-600"><span id="savings-value">0</span>%</p>
-                            </div>
-                            <div class="bg-purple-50 p-4 rounded-lg">
-                                <p class="text-sm text-gray-600">Выручка от майнинга</p>
-                                <p class="text-2xl font-bold text-purple-600"><span id="mining-profit">0</span> руб/мес</p>
-                            </div>
-                            <div class="bg-orange-50 p-4 rounded-lg">
-                                <p class="text-sm text-gray-600">Окупаемость ферм</p>
-                                <p class="text-2xl font-bold text-orange-600"><span id="payback-value">0</span> мес.</p>
-                            </div>
-                        </div>
-
-                        <!-- Детализация тарифа -->
-                        <div class="mb-6">
-                            <h3 class="text-lg font-semibold mb-3">Структура тарифа</h3>
-                            <div id="tariff-breakdown" class="space-y-2"></div>
-                        </div>
-
-                        <!-- Оборудование -->
-                        <div class="mb-6">
-                            <h3 class="text-lg font-semibold mb-3">Оборудование</h3>
-                            <p class="text-gray-700">
-                                Требуется <span id="equipment-count" class="font-bold">0</span> ГПУ 
-                                общей мощностью <span id="total-power" class="font-bold">0</span> кВт
-                            </p>
-                            <p class="text-gray-700">
-                                Майнинг-фермы: <span id="mining-power" class="font-bold">0</span> кВт
-                            </p>
-                        </div>
-
-                        <!-- Энергопотребление -->
-                        <div class="mb-6">
-                            <h3 class="text-lg font-semibold mb-3">Энергопотребление (в месяц)</h3>
-                            <div class="grid grid-cols-3 gap-4">
-                                <div>
-                                    <p class="text-sm text-gray-600">Клиент</p>
-                                    <p class="text-lg font-semibold"><span id="energy-client">0</span> кВт·ч</p>
-                                </div>
-                                <div>
-                                    <p class="text-sm text-gray-600">Майнинг</p>
-                                    <p class="text-lg font-semibold"><span id="energy-mining">0</span> кВт·ч</p>
-                                </div>
-                                <div>
-                                    <p class="text-sm text-gray-600">Всего</p>
-                                    <p class="text-lg font-semibold"><span id="energy-total">0</span> кВт·ч</p>
-                                </div>
-                            </div>
-                        </div>
+                <!-- Results Section -->
+                <div class="calculator-results">
+                    <!-- Placeholder -->
+                    <div id="placeholder" class="calculator-placeholder">
+                        <svg class="calculator-placeholder-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 36v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                        </svg>
+                        <p>Заполните параметры и нажмите "Рассчитать тариф"</p>
                     </div>
 
-                    <!-- Charts -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                        <!-- График нагрузки -->
-                        <div class="bg-white rounded-lg shadow-md p-6">
-                            <h3 class="text-lg font-semibold mb-4">График нагрузки 24/7</h3>
-                            <canvas id="load-chart"></canvas>
+                    <!-- Results (hidden until calculation) -->
+                    <div id="results" style="display:none;">
+                        <div class="calculator-results-card">
+                            <h3 class="calculator-title">Результаты расчёта</h3>
+                            
+                            <div class="calculator-stats">
+                                <div class="calculator-stat-card blue">
+                                    <p class="calculator-stat-label">Тариф для клиента</p>
+                                    <p class="calculator-stat-value"><span id="tariff-value">0</span> руб/кВт·ч</p>
+                                </div>
+                                <div class="calculator-stat-card green">
+                                    <p class="calculator-stat-label">Экономия vs сеть</p>
+                                    <p class="calculator-stat-value"><span id="savings-value">0</span>%</p>
+                                </div>
+                                <div class="calculator-stat-card purple">
+                                    <p class="calculator-stat-label">Выручка от майнинга</p>
+                                    <p class="calculator-stat-value"><span id="mining-profit">0</span> руб/мес</p>
+                                </div>
+                                <div class="calculator-stat-card orange">
+                                    <p class="calculator-stat-label">Окупаемость ферм</p>
+                                    <p class="calculator-stat-value"><span id="payback-value">0</span> мес.</p>
+                                </div>
+                            </div>
+
+                            <!-- Детализация тарифа -->
+                            <div class="calculator-breakdown">
+                                <h4 class="calculator-subtitle">Структура тарифа</h4>
+                                <div id="tariff-breakdown" class="calculator-breakdown-list"></div>
+                            </div>
+
+                            <!-- Оборудование -->
+                            <div class="calculator-breakdown">
+                                <h4 class="calculator-subtitle">Оборудование</h4>
+                                <p class="calculator-text">
+                                    ГПУ: <span id="equipment-model-name" class="font-bold"></span> <span id="equipment-power" class="font-bold">0</span> кВт × <span id="equipment-count" class="font-bold">0</span> шт.
+                                </p>
+                                <p class="calculator-text">
+                                    Общая мощность: <span id="total-power" class="font-bold">0</span> кВт
+                                </p>
+                                <p class="calculator-text">
+                                    Майнинг-фермы: <span id="mining-power" class="font-bold">0</span> кВт
+                                </p>
+                            </div>
+
+                            <!-- Энергопотребление -->
+                            <div class="calculator-breakdown">
+                                <h4 class="calculator-subtitle">Энергопотребление (в месяц)</h4>
+                                <div class="calculator-energy-grid">
+                                    <div>
+                                        <p class="calculator-energy-label">Клиент</p>
+                                        <p class="calculator-energy-value"><span id="energy-client">0</span> кВт·ч</p>
+                                    </div>
+                                    <div>
+                                        <p class="calculator-energy-label">Майнинг</p>
+                                        <p class="calculator-energy-value"><span id="energy-mining">0</span> кВт·ч</p>
+                                    </div>
+                                    <div>
+                                        <p class="calculator-energy-label">Всего</p>
+                                        <p class="calculator-energy-value"><span id="energy-total">0</span> кВт·ч</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <!-- Структура тарифа -->
-                        <div class="bg-white rounded-lg shadow-md p-6">
-                            <h3 class="text-lg font-semibold mb-4">Структура тарифа</h3>
-                            <canvas id="tariff-chart"></canvas>
+                        <!-- Charts -->
+                        <div class="calculator-charts">
+                            <div class="calculator-chart-card">
+                                <h4 class="calculator-subtitle">График нагрузки 24/7</h4>
+                                <canvas id="load-chart"></canvas>
+                            </div>
+                            <div class="calculator-chart-card">
+                                <h4 class="calculator-subtitle">Структура тарифа</h4>
+                                <canvas id="tariff-chart"></canvas>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        
+        <!-- CTA после калькулятора -->
+        <div class="fade-in" style="text-align:center; margin-top:2rem;">
+            <p style="color:var(--color-text-light); margin-bottom:1rem;">
+                Хотите детальное коммерческое предложение с точными цифрами?
+            </p>
+            <a href="#cta-form-section" class="btn btn-primary btn-lg">Получить расчёт для моего предприятия</a>
+        </div>
+    </div>
+</section>
 
-                <!-- Placeholder -->
-                <div id="placeholder" class="bg-white rounded-lg shadow-md p-12 text-center">
-                    <svg class="w-16 h-16 mx-auto text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 36v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-                    </svg>
-                    <p class="text-gray-600 text-lg">Заполните параметры и нажмите "Рассчитать тариф"</p>
+
+<!-- ============================================
+     RISKS SECTION
+     ============================================ -->
+<section class="section section-alt" id="risks">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="label">Безопасно</span>
+            <h2>Мы снимаем с вас все риски</h2>
+            <p>Вы владелец производства, а не энергетик. Вам не нужно разбираться в том, что не является вашей компетенцией.</p>
+        </div>
+        
+        <div class="risks-grid">
+            <div class="risk-card fade-in-left">
+                <div class="risk-label">⚙️ Технические риски</div>
+                <h3>Вам не нужно разбираться в оборудовании</h3>
+                <ul>
+                    <li>Газопоршневые установки, теплоутилизаторы, автоматику — мы подбираем и закупаем сами</li>
+                    <li>Обслуживание, ремонты, запчасти — наш штат инженеров, наши расходы</li>
+                    <li>Технические условия, согласования, экспертизы — мы проходим 15+ инстанций</li>
+                    <li>Поломки и аварии — мы устраняем, вы даже можете не узнать об этом</li>
+                    <li>Мониторинг работы 24/7 — наша диспетчерская, а не ваш цех</li>
+                </ul>
+            </div>
+            
+            <div class="risk-card financial fade-in-right">
+                <div class="risk-label">💰 Финансовые риски</div>
+                <h3>Вам не нужно вкладывать большие деньги в незнакомое</h3>
+                <ul>
+                    <li>Никаких десятков миллионов upfront — платите помесячно за результат</li>
+                    <li>Не покупаете оборудование, которое не до конца понимаете</li>
+                    <li>Не платите сразу тому, с кем работаете впервые</li>
+                    <li>Если газ подорожает — пересчитаем вместе, вы не остаётесь один на один с проблемой</li>
+                    <li>Аренда с возможностью выкупа — сначала проверяете, потом решаете</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     SERVICES (What's Included)
+     ============================================ -->
+<section class="section" id="services">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="label">Комплексно</span>
+            <h2>Что входит в цену вашего электричества</h2>
+            <p>Это не просто «генератор». Это полноценная электростанция под ключ — со всеми сложностями, которые мы берём на себя.</p>
+        </div>
+        
+        <div class="services-grid stagger-children">
+            <div class="service-card">
+                <div class="service-icon">📋</div>
+                <h3>Проект и разрешения</h3>
+                <p>ТУ на подключение газа, согласование с энергонадзором, пожарная экспертиза, экологическая оценка. 15+ инстанций — мы проходим сами.</p>
+                <a href="proektirovanie.html" class="service-link">Подробнее →</a>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Оборудование</h3>
+                <p>Подбор, закупка, доставка электрогенерирующего оборудования. Проверенные производители, гарантия качества.</p>
+                <a href="#" class="service-link">Узнать больше →</a>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🏗️</div>
+                <h3>Строительство и запуск</h3>
+                <p>Фундамент, монтаж, подключение газа и электричества, пусконаладка. Строим под ключ — вы видите результат.</p>
+                <a href="montazh-i-zapusk.html" class="service-link">Подробнее →</a>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Обслуживание</h3>
+                <p>Плановые проверки, ремонт, запчасти, мониторинг 24/7. Вы забываете о существовании электростанции — она просто работает.</p>
+                <a href="obsluzhivanie.html" class="service-link">Подробнее →</a>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">✅</div>
+                <h3>Гарантия цены</h3>
+                <p>Фиксированный тариф на весь срок договора. Если не обеспечиваем экономию — компенсируем разницу. Риск на нас.</p>
+                <a href="arenda.html" class="service-link">Подробнее →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     COOPERATION OPTIONS
+     ============================================ -->
+<section class="section section-alt" id="options">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="label">Гибко</span>
+            <h2>Три варианта сотрудничества</h2>
+            <p>Выбирайте тот, который подходит вашему бизнесу сейчас.</p>
+        </div>
+        
+        <div class="options-grid">
+            <!-- Option 1: Аренда -->
+            <div class="option-card featured fade-in">
+                <span class="option-badge">Популярный выбор</span>
+                <h3>Аренда</h3>
+                <p style="color:var(--color-text-light); font-size:0.9375rem;">Оборудование наше. Вы платите только за электричество.</p>
+                <div class="option-price">
+                    от 4.5 ₽<span class="period">/кВт·ч</span>
+                </div>
+                <ul>
+                    <li>Ноль капитальных вложений</li>
+                    <li>Платите помесячно за результат</li>
+                    <li>Все риски — на нас</li>
+                    <li>Можно расторгнуть договор</li>
+                    <li>Идеально для начала</li>
+                </ul>
+                <a href="arenda.html" class="btn btn-primary" style="width:100%; justify-content:center;">Подробнее об аренде</a>
+            </div>
+            
+            <!-- Option 2: Аренда с выкупом -->
+            <div class="option-card fade-in">
+                <h3>Аренда с выкупом</h3>
+                <p style="color:var(--color-text-light); font-size:0.9375rem;">Сначала арендуете, потом оборудование становится вашим.</p>
+                <div class="option-price">
+                    от 4.0 ₽<span class="period">/кВт·ч</span>
+                </div>
+                <ul>
+                    <li>Через 3–5 лет — ваше оборудование</li>
+                    <li>После выкупа цена падает ещё</li>
+                    <li>Плавный переход к собственности</li>
+                    <li>Минимальные риски на старте</li>
+                    <li>Оптимальный баланс</li>
+                </ul>
+                <a href="arenda-vykup.html" class="btn btn-secondary" style="width:100%; justify-content:center;">Подробнее</a>
+            </div>
+            
+            <!-- Option 3: Покупка -->
+            <div class="option-card fade-in">
+                <h3>Покупка</h3>
+                <p style="color:var(--color-text-light); font-size:0.9375rem;">Купить сразу — максимальная экономия с первого дня.</p>
+                <div class="option-price">
+                    от 3.0 ₽<span class="period">/кВт·ч</span>
+                </div>
+                <ul>
+                    <li>Максимально низкая цена кВт·ч</li>
+                    <li>Окупается за 3–4 года</li>
+                    <li>Оборудование в вашем балансе</li>
+                    <li>Для тех, кто уверен в выборе</li>
+                    <li>Лизинг доступен</li>
+                </ul>
+                <a href="#cta-form-section" class="btn btn-secondary" style="width:100%; justify-content:center;">Запросить расчёт</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     NUMBERS / STATS
+     ============================================ -->
+<section class="section" id="numbers">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="label">Доказано</span>
+            <h2>Реальная выгода для реальных предприятий</h2>
+        </div>
+        
+        <div class="stats-grid stagger-children">
+            <div class="stat-card">
+                <div class="stat-number" data-count="180000" data-suffix="" data-prefix="−">0</div>
+                <div class="stat-unit">₽/мес</div>
+                <p class="stat-desc">экономия завода 500 кВт</p>
+                <p class="stat-context">2 смены, нагрузка 70%</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-count="24" data-suffix="">0</div>
+                <div class="stat-unit">месяца</div>
+                <p class="stat-desc">окупаемость теплицы</p>
+                <p class="stat-context">круглогодичный режим</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-count="40" data-suffix="%">0</div>
+                <div class="stat-unit">экономия</div>
+                <p class="stat-desc">vs сетевой тариф</p>
+                <p class="stat-context">в среднем по клиентам</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     FAQ
+     ============================================ -->
+<section class="section section-alt" id="faq">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="label">Честно</span>
+            <h2>Вопросы, которые вы хотите задать</h2>
+            <p>Мы отвечаем прямо — без маркетинговой воды.</p>
+        </div>
+        
+        <div class="faq-list">
+            <div class="faq-item fade-in">
+                <button class="faq-question">Это законно?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Да, полностью. Производство собственной электроэнергии разрешено российским законодательством (ФЗ-35 «Об электроэнергетике»). Мини-ТЭЦ работают по всей стране — от небольших цехов до крупных заводов. Мы оформляем всё официально: разрешения, согласования, подключение к сетям.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <button class="faq-question">А если газ подорожает?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Газ — основной компонент нашего тарифа. Если газ дорожает, мы обсуждаем это с вами. Но важно: когда газ дорожает, обычно дорожает и сетевое электричество (потому что оно тоже производится из газа). Так что ваша экономия сохраняется. Кроме того, в контракте можно зафиксировать механизм корректировки тарифа — прозрачный и понятный.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <button class="faq-question">Сколько времени занимает строительство?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>От подписания договора до подачи электричества — обычно 4–8 месяцев. Сроки зависят от сложности объекта и скорости получения разрешений. На этапе заявки мы даём реалистичный график по вашему конкретному случаю.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <button class="faq-question">Что если что-то сломается?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Мы следим за работой станции 24/7 через систему дистанционного мониторинга. Большинство проблем мы обнаруживаем и устраняем до того, как они влияют на ваше производство. Если происходит серьёзная поломка — вы автоматически переключаетесь на сеть (параллельная работа), а мы чиним нашу станцию. Ваше производство не стоит.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <button class="faq-question">А сетевая компания не против?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Сетевые организации заинтересованы в распределённой генерации — это разгружает их сети. Параллельное работа (когда вы получаете электричество и от нас, и от сети) оформляется официально. Это стандартная практика, никакой «серой» схемы.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <button class="faq-question">Подходит ли это для небольшого предприятия?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Экономический смысл появляется при потреблении от 150–200 кВт и выше. Если у вас меньше — мы честно скажем. Лучше отказать, чем продать невыгодный проект. Присылайте данные — мы бесплатно оценим потенциал.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <button class="faq-question">Нужно ли выделять площадь под станцию?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Да, понадобится площадка — примерно контейнер или небольшой модульный building. Обычно это размещают на территории предприятия рядом с точкой подключения газа. На этапе оценки мы приедем, посмотрим и скажем точно — где и что нужно.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <button class="faq-question">Можно ли сначала посчитать без обязательств?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Конечно. Используйте калькулятор на этой странице — он даст предварительную оценку. Для точного расчёта оставьте заявку: мы подготовим детальное коммерческое предложение с вашими реальными данными. Никаких обязательств — просто цифры, на которые можно смотреть и думать.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</section>
 
-    <!-- Модальное окно для сбора лидов -->
-    <div id="lead-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
-        <div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4">
-            <div class="flex justify-between items-center p-6 border-b">
-                <h3 class="text-xl font-bold text-gray-800">Получить детальный расчёт</h3>
-                <button id="close-modal" class="text-gray-500 hover:text-gray-700">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
+
+<!-- ============================================
+     CTA FORM SECTION
+     ============================================ -->
+<section class="cta-section section" id="cta-form-section">
+    <div class="container">
+        <div class="fade-in" style="max-width:600px; margin:0 auto;">
+            <h2>Рассчитаю выгоду для вашего предприятия</h2>
+            <p>Оставьте контакты — подготовлю индивидуальный расчёт с точными цифрами по вашему объекту. Без обязательств.</p>
+            
+            <form id="cta-form" class="text-left" style="margin-top:2rem;">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="cta-name">Ваше имя *</label>
+                        <input type="text" id="cta-name" name="name" class="form-input" placeholder="Как к вам обращаться?" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="cta-company">Предприятие</label>
+                        <input type="text" id="cta-company" name="company" class="form-input" placeholder="Название компании">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="cta-phone">Телефон *</label>
+                        <input type="tel" id="cta-phone" name="phone" class="form-input" placeholder="+7 (___) ___-__-__" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="cta-email">Email</label>
+                        <input type="email" id="cta-email" name="email" class="form-input" placeholder="mail@company.ru">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="cta-message">Расскажите кратко о вашем предприятии</label>
+                    <textarea id="cta-message" name="message" class="form-textarea" placeholder="Отрасль, примерное потребление (кВт), режим работы..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-white btn-lg" style="width:100%; justify-content:center;">
+                    Получить расчёт →
                 </button>
-            </div>
-            <div class="p-6">
-                <p class="text-gray-600 mb-4">Оставьте свои контакты, чтобы получить подробный расчёт с рекомендациями и коммерческое предложение.</p>
-                <!-- Форма будет отправлять данные через Formspree -->
-                <form id="lead-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Имя</label>
-                        <input type="text" name="name" id="lead-name" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Телефон</label>
-                        <input type="tel" name="phone" id="lead-phone" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                        <input type="email" name="email" id="lead-email" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    </div>
-                    <input type="hidden" name="calculation_data" id="calculation-data">
-                    <button type="submit" class="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 transition duration-200 font-semibold">
-                        Отправить заявку
-                    </button>
-                </form>
-            </div>
+                
+                <p style="font-size:0.8125rem; opacity:0.6; margin-top:1rem; text-align:center;">
+                    Нажимая кнопку, вы соглашаетесь на обработку персональных данных
+                </p>
+            </form>
         </div>
     </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white mt-16">
-        <div class="container mx-auto px-4 py-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">миниТЭЦ</h3>
-                    <p class="text-gray-400">Энергосервисные контракты с газопоршневыми установками. Экономия до 30% на электроэнергии.</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Контакты</h3>
-                    <p class="text-gray-400">Email: info@minites.ru</p>
-                    <p class="text-gray-400">Телефон: +7 (XXX) XXX-XX-XX</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Навигация</h3>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white">Главная</a></li>
-                        <li><a href="#calculator" class="text-gray-400 hover:text-white">Калькулятор</a></li>
-                        <li><a href="#about" class="text-gray-400 hover:text-white">О нас</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-white">Контакты</a></li>
-                    </ul>
-                </div>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <a href="index.html" class="footer-brand">mini<span>TES</span></a>
+                <p>Электричество для вашего бизнеса на 30–40% дешевле сетевого тарифа. Мини-ТЭЦ под ключ: аренда, энергосервис, строительство.</p>
             </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2026 миниТЭЦ. Все права защищены.</p>
+            
+            <div>
+                <h4>Услуги</h4>
+                <ul class="footer-links">
+                    <li><a href="arenda.html">Аренда мини-ТЭС</a></li>
+                    <li><a href="arenda-vykup.html">Аренда с выкупом</a></li>
+                    <li><a href="proektirovanie.html">Проект и разрешения</a></li>
+                    <li><a href="montazh-i-zapusk.html">Строительство</a></li>
+                    <li><a href="obsluzhivanie.html">Обслуживание</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4>Инструменты</h4>
+                <ul class="footer-links">
+                    <li><a href="calculator.html">Калькулятор выгоды</a></li>
+                    <li><a href="uslugi.html">Все услуги</a></li>
+                    <li><a href="#faq">Вопросы и ответы</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4>Контакты</h4>
+                <ul class="footer-links">
+                    <li><a href="mailto:info@minites.ru">info@minites.ru</a></li>
+                    <li><a href="contact.html">Форма обратной связи</a></li>
+                    <li><a href="contact.html">Отправить запрос</a></li>
+                </ul>
             </div>
         </div>
-    </footer>
+        
+        <div class="footer-bottom">
+            <p>© 2026 miniTES. Все права защищены.</p>
+        </div>
+    </div>
+</footer>
 
-    <script src="js/equipment.js"></script>
-    <script src="js/calculator.js"></script>
+
+<!-- ============================================
+     SCRIPTS
+     ============================================ -->
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+<script src="js/github-forms.js"></script>
+<script src="js/equipment.js"></script>
+<script src="js/calculator.js"></script>
+
 </body>
 </html>

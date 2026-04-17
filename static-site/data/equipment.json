@@ -2,63 +2,39 @@
   "equipment": [
     {
       "id": 1,
-      "name": "GZE 100",
-      "manufacturer": "GazEcos",
-      "power_kw": 100,
-      "gas_consumption_per_kwh": 0.25,
-      "purchase_price": 3500000,
-      "rent_rate_month": 50000,
-      "service_cost_per_kwh": 0.5
+      "name": "Doosan 200",
+      "manufacturer": "Doosan",
+      "power_kw": 200,
+      "gas_consumption_per_kwh": 0.3,
+      "purchase_price": 6000000,
+      "rent_rate_month": 150000,
+      "service_cost_per_kwh": 1.4,
+      "investor_rate_month": 250000,
+      "contractor_rate_month": 150000
     },
     {
       "id": 2,
-      "name": "GZE 200",
-      "manufacturer": "GazEcos",
-      "power_kw": 200,
-      "gas_consumption_per_kwh": 0.23,
-      "purchase_price": 6500000,
-      "rent_rate_month": 90000,
-      "service_cost_per_kwh": 0.45
+      "name": "Doosan 250",
+      "manufacturer": "Doosan",
+      "power_kw": 250,
+      "gas_consumption_per_kwh": 0.3,
+      "purchase_price": 7500000,
+      "rent_rate_month": 187500,
+      "service_cost_per_kwh": 1.4,
+      "investor_rate_month": 300000,
+      "contractor_rate_month": 180000
     },
     {
       "id": 3,
-      "name": "GZE 300",
-      "manufacturer": "GazEcos",
-      "power_kw": 300,
-      "gas_consumption_per_kwh": 0.22,
-      "purchase_price": 9000000,
-      "rent_rate_month": 130000,
-      "service_cost_per_kwh": 0.4
-    },
-    {
-      "id": 4,
-      "name": "GZE 500",
-      "manufacturer": "GazEcos",
-      "power_kw": 500,
-      "gas_consumption_per_kwh": 0.21,
-      "purchase_price": 14000000,
-      "rent_rate_month": 200000,
-      "service_cost_per_kwh": 0.35
-    },
-    {
-      "id": 5,
-      "name": "Далеан ЭГ100",
-      "manufacturer": "Далеан",
-      "power_kw": 100,
-      "gas_consumption_per_kwh": 0.26,
-      "purchase_price": 3200000,
-      "rent_rate_month": 45000,
-      "service_cost_per_kwh": 0.55
-    },
-    {
-      "id": 6,
-      "name": "Далеан ЭГ200",
-      "manufacturer": "Далеан",
+      "name": "ТМЗ 200",
+      "manufacturer": "ТМЗ",
       "power_kw": 200,
-      "gas_consumption_per_kwh": 0.24,
-      "purchase_price": 6000000,
-      "rent_rate_month": 85000,
-      "service_cost_per_kwh": 0.5
+      "gas_consumption_per_kwh": 0.3,
+      "purchase_price": 5500000,
+      "rent_rate_month": 137500,
+      "service_cost_per_kwh": 1.4,
+      "investor_rate_month": 250000,
+      "contractor_rate_month": 150000
     }
   ],
   "mining_config": {

@@ -4,26 +4,32 @@
  */
 
 // Конфигурация GitHub
-// GitHub токен должен быть установлен через переменную окружения
-// или передан через data-api-token атрибут на странице
 const GITHUB_CONFIG = {
     owner: 'te213674',
     repo: 'miniTES',
-    token: '' // Будет установлен из data-api-token
+    token: ''
 };
 
-// Проверяем наличие токена в data-api-token атрибуте
+// Загрузка токена: приоритет config.js → data-api-token → undefined
 document.addEventListener('DOMContentLoaded', function() {
-    const tokenElement = document.querySelector('[data-api-token]');
-    if (tokenElement) {
-        const token = tokenElement.getAttribute('data-api-token');
-        // Не используем токен, если это заглушка
-        if (token && token !== 'YOUR_GITHUB_TOKEN') {
-            GITHUB_CONFIG.token = token;
+    // 1. Приоритет: глобальная переменная из js/config.js
+    if (typeof GITHUB_TOKEN !== 'undefined' && GITHUB_TOKEN && GITHUB_TOKEN !== 'YOUR_GITHUB_TOKEN_HERE') {
+        GITHUB_CONFIG.token = GITHUB_TOKEN;
+    } else {
+        // 2. Fallback: data-api-token атрибут (для обратной совместимости)
+        const tokenElement = document.querySelector('[data-api-token]');
+        if (tokenElement) {
+            const token = tokenElement.getAttribute('data-api-token');
+            if (token && token !== 'YOUR_GITHUB_TOKEN') {
+                GITHUB_CONFIG.token = token;
+            }
         }
     }
+    
     if (!GITHUB_CONFIG.token) {
-        console.warn('GitHub API token not found. Add data-api-token attribute to your HTML or set GIT_API_TOKEN secret.');
+        console.info('GitHub API token not found. Forms will use FormSubmit.co instead. Create js/config.js with your token for GitHub Issues.');
+    } else {
+        console.log('GitHub API token loaded. Issues integration is active.');
     }
 });
 
