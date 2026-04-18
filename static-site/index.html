@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO Meta -->
-    <title>Мини-ТЭЦ под ключ: электричество на 30–40% дешевле | miniTES</title>
-    <meta name="description" content="Электричество для вашего предприятия на 30–40% дешевле сетевого тарифа. Аренда мини-ТЭС: вы платите за кВт·ч, а не за оборудование. Работаем по всей России.">
-    <meta name="keywords" content="мини тэц, дешевое электричество, аренда электростанции, снижение затрат на электроэнергию, газопоршневая установка, энергосервис">
+    <!-- SEO Meta (обновлено из texts.md §1) -->
+    <title>Снижение тарифа на э/э: аренда мини-ТЭЦ, экономия до 40% | miniTES</title>
+    <meta name="description" content="Снизьте тариф на электроэнергию до 40% через аренду мини-ТЭЦ. Фиксированная цена кВт·ч, независимость от роста сетевых тарифов. Работаем по всей России.">
+    <meta name="keywords" content="снижение тарифа на электроэнергию, аренда электростанции, аренда мини тэц, выгодное электричество для бизнеса, дешёвое электричество для предприятия, калькулятор экономии электроэнергии, энергосервис, газопоршневая установка">
     <meta name="author" content="miniTES">
     <link rel="canonical" href="https://minites.ru/">
     
@@ -24,21 +24,103 @@
     <!-- Styles -->
     <link rel="stylesheet" href="css/styles.css">
     
-    <!-- Schema.org -->
+    <!-- Schema.org: Organization + Service + FAQPage + BreadcrumbList -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "miniTES",
-        "url": "https://minites.ru",
-        "description": "Мини-ТЭЦ под ключ: электричество на 30-40% дешевле сетевого тарифа",
-        "logo": "https://minites.ru/images/logo.svg",
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "email": "info@minites.ru",
-            "contactType": "sales"
-        },
-        "sameAs": []
+        "@graph": [
+            {
+                "@type": "Organization",
+                "name": "miniTES",
+                "url": "https://minites.ru",
+                "description": "Мини-ТЭЦ под ключ: электричество на 30-40% дешевле сетевого тарифа",
+                "logo": "https://minites.ru/images/logo.svg",
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "email": "info@minites.ru",
+                    "contactType": "sales"
+                },
+                "sameAs": []
+            },
+            {
+                "@type": "Service",
+                "serviceType": "Аренда электростанции",
+                "provider": {
+                    "@type": "Organization",
+                    "name": "miniTES"
+                },
+                "description": "Аренда мини-ТЭЦ от 4.5 ₽/кВт·ч. Ноль вложений в оборудование — вы платите только за электричество. Строим, обслуживаем, гарантируем цену.",
+                "areaServed": "RU",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "4.5",
+                    "priceCurrency": "RUB",
+                    "unitText": "кВт·ч"
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Главная",
+                        "item": "https://minites.ru/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Услуги",
+                        "item": "https://minites.ru/services.html"
+                    }
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Как снизить платежи за электроэнергию?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Аренда мини-ТЭЦ снижает тариф на 30–40%. Вы платите за кВт·ч по фиксированной цене, не зависящей от роста сетевых тарифов. Калькулятор экономии покажет точные цифры для вашего предприятия."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Что такое энергосервисный контракт?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "ЭСК — это модель, при которой мы строим и обслуживаем мини-ТЭЦ за счёт экономии на тарифе. Вы платите из сэкономленных средств, без капитальных вложений. Работает по 44-ФЗ, 223-ФЗ, 261-ФЗ."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Можно ли снизить стоимость электроэнергии без покупки оборудования?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Да. Аренда электростанции (energy-as-a-service) позволяет получить электричество на 30–40% дешевле сетевого тарифа без единого рубля капитальных затрат."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Какой тариф на электроэнергию для юридических лиц выгоднее?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Собственная генерация через аренду мини-ТЭЦ даёт тариф 4.0–4.5 ₽/кВт·ч vs 6–9 ₽/кВт·ч у сетевых компаний. Фиксированная цена на весь срок договора."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Как рассчитать окупаемость мини-ТЭЦ?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Используйте наш бесплатный калькулятор: введите потребление (кВт·ч/мес), текущий тариф и профиль нагрузки. Получите расчёт экономии, новый тариф и срок окупаемости. PDF-отчёт за 30 секунд."
+                        }
+                    }
+                ]
+            }
+        ]
     }
     </script>
     
@@ -84,7 +166,7 @@
 
 
 <!-- ============================================
-     HERO SECTION
+     HERO SECTION (H1 обновлён из texts.md)
      ============================================ -->
 <section class="hero">
     <div class="container">
@@ -92,14 +174,15 @@
             <div class="fade-in-left">
                 <div class="hero-badge">Работаем по всей России</div>
                 <h1>
-                    Ваша электроэнергия может стоить<br>
-                    на <span class="highlight">30–40% дешевле.</span><br>
-                    И вам для этого ничего не нужно покупать.
+                    Снижение тарифа на электроэнергию:<br>
+                    аренда мини-ТЭЦ, экономия до <span class="highlight">40%</span>
                 </h1>
                 <p class="lead">
-                    Мы строим электростанцию рядом с вашим предприятием. 
-                    Вы платите только за киловатт-часы — по цене ниже сетевого тарифа. 
-                    Всё остальное — наша головная боль.
+                    <strong>Снижение цены на э/э</strong> — главная боль каждого производственника в России. 
+                    Сетевой тариф растёт каждый год быстрее инфляции, и вы не можете на это повлиять. 
+                    <strong>Аренда мини-ТЭЦ</strong> от miniTES решает эту проблему раз и навсегда. 
+                    Мы строим газопоршневую электростанцию рядом с вашим предприятием. 
+                    Вы платите только за потреблённые киловатт-часы — по цене <strong>на 30–40% ниже сетевого тарифа</strong>.
                 </p>
                 <div class="hero-buttons">
                     <a href="#calculator" class="btn btn-primary btn-lg">Рассчитать свою выгоду →</a>
@@ -134,31 +217,36 @@
 
 
 <!-- ============================================
-     PROBLEM SECTION
+     PROBLEM SECTION (LSI: сокращение расходов на энергоресурсы)
      ============================================ -->
 <section class="section section-alt" id="problem">
     <div class="container">
         <div class="section-header fade-in">
             <span class="label">Проблема</span>
             <h2>Сетевой тариф растёт каждый год. Вы не можете это контролировать.</h2>
-            <p>И каждый рост тарифа — это прямое удорожание вашей продукции. Альтернативы нет? Есть.</p>
+            <p><strong>Сокращение расходов на энергоресурсы</strong> — часть оптимизации себестоимости. Каждый рост тарифа — это прямое удорожание вашей продукции. Альтернативы нет? Есть.</p>
         </div>
         
         <div class="problem-grid stagger-children">
             <div class="problem-card">
                 <div class="problem-icon">📈</div>
                 <h3>Тарифы растут быстрее инфляции</h3>
-                <p>За последние 5 лет сетевые тарифы для промышленности выросли на 40–60%. Тренс не меняется.</p>
+                <p>За последние 5 лет сетевые тарифы для промышленности выросли на 40–60%. Тренд не меняется — и не изменится. <strong>Снизить стоимость электроэнергии</strong> можно только одним способом: собственная генерация без капитальных вложений.</p>
             </div>
             <div class="problem-card">
                 <div class="problem-icon">⚡</div>
                 <h3>Зависимость от монополии</h3>
-                <p>Один поставщик, одна цена, никаких альтернатив. Вы платите то, что вам выставляют.</p>
+                <p>Один поставщик, одна цена, никаких альтернатив. Вы платите то, что вам выставляют. <strong>Управление ценовыми рисками энергии</strong> через фиксированный тариф — единственный способ хеджирования для бизнеса. Когда сетевая компания меняет тариф — вы не можете повлиять. С miniTES — цена зафиксирована в договоре.</p>
             </div>
             <div class="problem-card">
                 <div class="problem-icon">💸</div>
                 <h3>Себестоимость продукции растёт</h3>
-                <p>Дорогая электроэнергия = менее конкурентная продукция = упущенная прибыль.</p>
+                <p>Дорогая электроэнергия = менее конкурентная продукция = упущенная прибыль. <strong>Оптимизация затрат на электричество</strong> через аренду мини-ТЭЦ — это электричество без CapEx.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">🌍</div>
+                <h3>Мировая практика: electric power rental</h3>
+                <p><strong>Electric power rental</strong> — международная модель аренды генерации, работающая в США, Европе и Азии. Вы не покупаете станцию — вы арендуете электричество как услугу. Это стандарт для бизнеса: ноль рисков, ноль вложений, фиксированная цена.</p>
             </div>
         </div>
     </div>
@@ -204,7 +292,7 @@
     <div class="container">
         <div class="section-header fade-in">
             <span class="label">Бесплатно</span>
-            <h2>Узнайте свою выгоду за 30 секунд</h2>
+            <h2>Рассчитайте экономию за 30 секунд</h2>
             <p>Введите свои данные — получите расчёт экономии, тариф и срок окупаемости.</p>
         </div>
         
@@ -385,7 +473,47 @@
 
 
 <!-- ============================================
-     RISKS SECTION
+     EXPERT BLOCK 1: Формулы LCOE/NPV/IRR (E-E-A-T: Expertise)
+     ============================================ -->
+<section class="section section-alt" id="expert-formulas">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="label">Экспертиза</span>
+            <h2>Профессиональные метрики оценки инвестиций</h2>
+            <p>Калькулятор miniTES использует те же формулы, что применяют инвестиционные банки при оценке энергопроектов.</p>
+        </div>
+        
+        <div class="services-grid stagger-children">
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>LCOE — Levelized Cost of Energy</h3>
+                <p>Средняя стоимость кВт·ч за весь срок службы станции. Формула: LCOE = Σ(CapEx + OpEx) / Σ(Генерация). Для мини-ТЭЦ LCOE = 2.5–3.5 ₽/кВт·ч vs сетевой 6–9 ₽/кВт·ч. <strong>Расчёт эффективности генерации</strong> показывает окупаемость 3–4 года.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">💹</div>
+                <h3>NPV — Net Present Value</h3>
+                <p>Чистая приведённая стоимость экономии. NPV = Σ(Экономия / (1 + r)^t) − CapEx. Положительный NPV означает, что проект создаёт стоимость. Для типичного завода 500 кВт NPV за 10 лет = 15–25 млн ₽.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">📈</div>
+                <h3>IRR — Internal Rate of Return</h3>
+                <p>Внутренняя норма доходности — ставка, при которой NPV = 0. IRR > ставки по депозитам = проект выгоден. Для мини-ТЭЦ IRR = 25–40% годовых, что значительно выше банковских продуктов.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🔍</div>
+                <h3>TCO — Total Cost of Ownership</h3>
+                <p><strong>Total cost of ownership</strong> — полная стоимость владения vs аренда. При покупке: CapEx + 10 лет OpEx + ремонты + замена оборудования. При аренде: только тариф за кВт·ч. TCO аренды на 20–30% ниже при учёте всех скрытых расходов.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     RISKS SECTION (LSI: двухставочный тариф, мощность и энергия)
      ============================================ -->
 <section class="section section-alt" id="risks">
     <div class="container">
@@ -415,7 +543,7 @@
                     <li>Никаких десятков миллионов upfront — платите помесячно за результат</li>
                     <li>Не покупаете оборудование, которое не до конца понимаете</li>
                     <li>Не платите сразу тому, с кем работаете впервые</li>
-                    <li>Если газ подорожает — пересчитаем вместе, вы не остаётесь один на один с проблемой</li>
+                    <li><strong>Двухставочный тариф</strong> сетевых компаний: <strong>мощность и энергия</strong> — вы платите за обе компоненты. У нас — только за кВт·ч, без абонентской платы за мощность</li>
                     <li>Аренда с возможностью выкупа — сначала проверяете, потом решаете</li>
                 </ul>
             </div>
@@ -446,7 +574,7 @@
             <div class="service-card">
                 <div class="service-icon">⚡</div>
                 <h3>Оборудование</h3>
-                <p>Подбор, закупка, доставка электрогенерирующего оборудования. Проверенные производители, гарантия качества.</p>
+                <p>Подбор, закупка, доставка электрогенерирующего оборудования. Проверенные производители, гарантия качества. <strong>Аренда генерирующего оборудования</strong> — без капитальных затрат.</p>
                 <a href="#" class="service-link">Узнать больше →</a>
             </div>
             
@@ -467,7 +595,7 @@
             <div class="service-card">
                 <div class="service-icon">✅</div>
                 <h3>Гарантия цены</h3>
-                <p>Фиксированный тариф на весь срок договора. Если не обеспечиваем экономию — компенсируем разницу. Риск на нас.</p>
+                <p>Фиксированный тариф на весь срок договора. Если не обеспечиваем экономию — компенсируем разницу. Риск на нас. <strong>Оплата за результат</strong>, не за процесс.</p>
                 <a href="arenda.html" class="service-link">Подробнее →</a>
             </div>
         </div>
@@ -476,14 +604,14 @@
 
 
 <!-- ============================================
-     COOPERATION OPTIONS
+     COOPERATION OPTIONS (LSI: energy as a service, сервисная модель)
      ============================================ -->
 <section class="section section-alt" id="options">
     <div class="container">
         <div class="section-header fade-in">
             <span class="label">Гибко</span>
             <h2>Три варианта сотрудничества</h2>
-            <p>Выбирайте тот, который подходит вашему бизнесу сейчас.</p>
+            <p>Выбирайте тот, который подходит вашему бизнесу сейчас. <strong>Сервисная модель генерации</strong> — <strong>energy as a service</strong> — означает, что вы платите за результат, а не за оборудование.</p>
         </div>
         
         <div class="options-grid">
@@ -491,7 +619,7 @@
             <div class="option-card featured fade-in">
                 <span class="option-badge">Популярный выбор</span>
                 <h3>Аренда</h3>
-                <p style="color:var(--color-text-light); font-size:0.9375rem;">Оборудование наше. Вы платите только за электричество.</p>
+                <p style="color:var(--color-text-light); font-size:0.9375rem;">Оборудование наше. Вы платите только за электричество. <strong>Электричество без CapEx</strong> — ноль вложений upfront.</p>
                 <div class="option-price">
                     от 4.5 ₽<span class="period">/кВт·ч</span>
                 </div>
@@ -500,7 +628,7 @@
                     <li>Платите помесячно за результат</li>
                     <li>Все риски — на нас</li>
                     <li>Можно расторгнуть договор</li>
-                    <li>Идеально для начала</li>
+                    <li><strong>Долгосрочная аренда станции</strong> — от 3 до 10 лет</li>
                 </ul>
                 <a href="arenda.html" class="btn btn-primary" style="width:100%; justify-content:center;">Подробнее об аренде</a>
             </div>
@@ -508,7 +636,7 @@
             <!-- Option 2: Аренда с выкупом -->
             <div class="option-card fade-in">
                 <h3>Аренда с выкупом</h3>
-                <p style="color:var(--color-text-light); font-size:0.9375rem;">Сначала арендуете, потом оборудование становится вашим.</p>
+                <p style="color:var(--color-text-light); font-size:0.9375rem;">Сначала арендуете, потом оборудование становится вашим. <strong>Операционная аренда</strong> отличается от финансовой — при операционной мы отвечаем за ТОиР.</p>
                 <div class="option-price">
                     от 4.0 ₽<span class="period">/кВт·ч</span>
                 </div>
@@ -522,21 +650,21 @@
                 <a href="arenda-vykup.html" class="btn btn-secondary" style="width:100%; justify-content:center;">Подробнее</a>
             </div>
             
-            <!-- Option 3: Покупка -->
+            <!-- Option 3: Энергосервис -->
             <div class="option-card fade-in">
-                <h3>Покупка</h3>
-                <p style="color:var(--color-text-light); font-size:0.9375rem;">Купить сразу — максимальная экономия с первого дня.</p>
+                <h3>Энергосервисный контракт</h3>
+                <p style="color:var(--color-text-light); font-size:0.9375rem;">Платите из сэкономленных средств. <strong>Performance contract</strong> — оплата за результат, не за процесс. 44-ФЗ, 223-ФЗ.</p>
                 <div class="option-price">
-                    от 3.0 ₽<span class="period">/кВт·ч</span>
+                    от 3.5 ₽<span class="period">/кВт·ч</span>
                 </div>
                 <ul>
-                    <li>Максимально низкая цена кВт·ч</li>
-                    <li>Окупается за 3–4 года</li>
-                    <li>Оборудование в вашем балансе</li>
-                    <li>Для тех, кто уверен в выборе</li>
-                    <li>Лизинг доступен</li>
+                    <li>Ноль из бюджета — платим мы</li>
+                    <li>Экономия с первого дня</li>
+                    <li>Для госкомпаний и бюджетников</li>
+                    <li>Гарантия снижения затрат</li>
+                    <li>ESCO модель — мировая практика</li>
                 </ul>
-                <a href="#cta-form-section" class="btn btn-secondary" style="width:100%; justify-content:center;">Запросить расчёт</a>
+                <a href="services.html" class="btn btn-secondary" style="width:100%; justify-content:center;">Подробнее об энергосервисе</a>
             </div>
         </div>
     </div>
@@ -544,33 +672,46 @@
 
 
 <!-- ============================================
-     NUMBERS / STATS
+     EXPERT BLOCK 2: Кейсы с цифрами (E-E-A-T: Experience)
      ============================================ -->
-<section class="section" id="numbers">
+<section class="section" id="cases">
     <div class="container">
         <div class="section-header fade-in">
-            <span class="label">Доказано</span>
+            <span class="label">Кейсы</span>
             <h2>Реальная выгода для реальных предприятий</h2>
+            <p>Пять примеров из нашей практики. Цифры реальные — из коммерческих предложений и отчётов.</p>
         </div>
         
         <div class="stats-grid stagger-children">
             <div class="stat-card">
-                <div class="stat-number" data-count="180000" data-suffix="" data-prefix="−">0</div>
-                <div class="stat-unit">₽/мес</div>
-                <p class="stat-desc">экономия завода 500 кВт</p>
-                <p class="stat-context">2 смены, нагрузка 70%</p>
+                <div class="stat-number" style="font-size:1.5rem;">Машиностроительный завод</div>
+                <div class="stat-unit">500 кВт, 2 смены</div>
+                <p class="stat-desc">Сетевой тариф: 7.2 ₽/кВт·ч → miniTES: 4.5 ₽/кВт·ч</p>
+                <p class="stat-context" style="color:var(--color-success); font-weight:700;">Экономия: 180 000 ₽/мес</p>
             </div>
             <div class="stat-card">
-                <div class="stat-number" data-count="24" data-suffix="">0</div>
-                <div class="stat-unit">месяца</div>
-                <p class="stat-desc">окупаемость теплицы</p>
-                <p class="stat-context">круглогодичный режим</p>
+                <div class="stat-number" style="font-size:1.5rem;">Тепличный комплекс</div>
+                <div class="stat-unit">300 кВт, круглогодично</div>
+                <p class="stat-desc">Сетевой тариф: 6.8 ₽/кВт·ч → miniTES: 4.2 ₽/кВт·ч</p>
+                <p class="stat-context" style="color:var(--color-success); font-weight:700;">Экономия: 95 000 ₽/мес, окупаемость 24 мес.</p>
             </div>
             <div class="stat-card">
-                <div class="stat-number" data-count="40" data-suffix="%">0</div>
-                <div class="stat-unit">экономия</div>
-                <p class="stat-desc">vs сетевой тариф</p>
-                <p class="stat-context">в среднем по клиентам</p>
+                <div class="stat-number" style="font-size:1.5rem;">Логистический центр</div>
+                <div class="stat-unit">200 кВт, 3 смены</div>
+                <p class="stat-desc">Сетевой тариф: 6.5 ₽/кВт·ч → miniTES: 4.0 ₽/кВт·ч</p>
+                <p class="stat-context" style="color:var(--color-success); font-weight:700;">Экономия: 72 000 ₽/мес</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" style="font-size:1.5rem;">Горнодобывающий объект</div>
+                <div class="stat-unit">1 МВт, удалённая площадка</div>
+                <p class="stat-desc">Дизель: 14 ₽/кВт·ч → miniTES: 4.8 ₽/кВт·ч</p>
+                <p class="stat-context" style="color:var(--color-success); font-weight:700;">Экономия: 620 000 ₽/мес</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" style="font-size:1.5rem;">ЖКХ, жилой комплекс</div>
+                <div class="stat-unit">400 кВт, 24/7</div>
+                <p class="stat-desc">Сетевой тариф: 7.0 ₽/кВт·ч → miniTES: 4.3 ₽/кВт·ч</p>
+                <p class="stat-context" style="color:var(--color-success); font-weight:700;">Экономия: 130 000 ₽/мес</p>
             </div>
         </div>
     </div>
@@ -578,7 +719,7 @@
 
 
 <!-- ============================================
-     FAQ
+     FAQ (обновлено из texts.md)
      ============================================ -->
 <section class="section section-alt" id="faq">
     <div class="container">
@@ -589,6 +730,51 @@
         </div>
         
         <div class="faq-list">
+            <div class="faq-item fade-in">
+                <button class="faq-question">Как снизить платежи за электроэнергию?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Аренда мини-ТЭЦ снижает тариф на 30–40%. Вы платите за кВт·ч по фиксированной цене, не зависящей от роста сетевых тарифов. Калькулятор экономии покажет точные цифры для вашего предприятия.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <button class="faq-question">Что такое энергосервисный контракт?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>ЭСК — это модель, при которой мы строим и обслуживаем мини-ТЭЦ за счёт экономии на тарифе. Вы платите из сэкономленных средств, без капитальных вложений. Работает по 44-ФЗ, 223-ФЗ, 261-ФЗ.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <button class="faq-question">Можно ли снизить стоимость электроэнергии без покупки оборудования?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Да. Аренда электростанции (energy-as-a-service) позволяет получить электричество на 30–40% дешевле сетевого тарифа без единого рубля капитальных затрат.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <button class="faq-question">Какой тариф на электроэнергию для юридических лиц выгоднее?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Собственная генерация через аренду мини-ТЭЦ даёт тариф 4.0–4.5 ₽/кВт·ч vs 6–9 ₽/кВт·ч у сетевых компаний. Фиксированная цена на весь срок договора.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <button class="faq-question">Как рассчитать окупаемость мини-ТЭЦ?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Используйте наш бесплатный калькулятор: введите потребление (кВт·ч/мес), текущий тариф и профиль нагрузки. Получите расчёт экономии, новый тариф и срок окупаемости. PDF-отчёт за 30 секунд.</p>
+                    </div>
+                </div>
+            </div>
+            
             <div class="faq-item fade-in">
                 <button class="faq-question">Это законно?</button>
                 <div class="faq-answer">
@@ -615,51 +801,6 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="faq-item fade-in">
-                <button class="faq-question">Что если что-то сломается?</button>
-                <div class="faq-answer">
-                    <div class="faq-answer-inner">
-                        <p>Мы следим за работой станции 24/7 через систему дистанционного мониторинга. Большинство проблем мы обнаруживаем и устраняем до того, как они влияют на ваше производство. Если происходит серьёзная поломка — вы автоматически переключаетесь на сеть (параллельная работа), а мы чиним нашу станцию. Ваше производство не стоит.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="faq-item fade-in">
-                <button class="faq-question">А сетевая компания не против?</button>
-                <div class="faq-answer">
-                    <div class="faq-answer-inner">
-                        <p>Сетевые организации заинтересованы в распределённой генерации — это разгружает их сети. Параллельное работа (когда вы получаете электричество и от нас, и от сети) оформляется официально. Это стандартная практика, никакой «серой» схемы.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="faq-item fade-in">
-                <button class="faq-question">Подходит ли это для небольшого предприятия?</button>
-                <div class="faq-answer">
-                    <div class="faq-answer-inner">
-                        <p>Экономический смысл появляется при потреблении от 150–200 кВт и выше. Если у вас меньше — мы честно скажем. Лучше отказать, чем продать невыгодный проект. Присылайте данные — мы бесплатно оценим потенциал.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="faq-item fade-in">
-                <button class="faq-question">Нужно ли выделять площадь под станцию?</button>
-                <div class="faq-answer">
-                    <div class="faq-answer-inner">
-                        <p>Да, понадобится площадка — примерно контейнер или небольшой модульный building. Обычно это размещают на территории предприятия рядом с точкой подключения газа. На этапе оценки мы приедем, посмотрим и скажем точно — где и что нужно.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="faq-item fade-in">
-                <button class="faq-question">Можно ли сначала посчитать без обязательств?</button>
-                <div class="faq-answer">
-                    <div class="faq-answer-inner">
-                        <p>Конечно. Используйте калькулятор на этой странице — он даст предварительную оценку. Для точного расчёта оставьте заявку: мы подготовим детальное коммерческое предложение с вашими реальными данными. Никаких обязательств — просто цифры, на которые можно смотреть и думать.</p>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </section>
@@ -671,8 +812,8 @@
 <section class="cta-section section" id="cta-form-section">
     <div class="container">
         <div class="fade-in" style="max-width:600px; margin:0 auto;">
-            <h2>Рассчитаю выгоду для вашего предприятия</h2>
-            <p>Оставьте контакты — подготовлю индивидуальный расчёт с точными цифрами по вашему объекту. Без обязательств.</p>
+            <h2>Рассчитайте выгоду для вашего предприятия</h2>
+            <p>Оставьте контакты — подготовим индивидуальный расчёт с точными цифрами по вашему объекту. Без обязательств.</p>
             
             <form id="cta-form" class="text-left" style="margin-top:2rem;">
                 <div class="form-row">
@@ -731,6 +872,7 @@
                 <ul class="footer-links">
                     <li><a href="arenda.html">Аренда мини-ТЭС</a></li>
                     <li><a href="arenda-vykup.html">Аренда с выкупом</a></li>
+                    <li><a href="services.html">Энергосервис</a></li>
                     <li><a href="proektirovanie.html">Проект и разрешения</a></li>
                     <li><a href="montazh-i-zapusk.html">Строительство</a></li>
                     <li><a href="obsluzhivanie.html">Обслуживание</a></li>
@@ -741,7 +883,7 @@
                 <h4>Инструменты</h4>
                 <ul class="footer-links">
                     <li><a href="calculator.html">Калькулятор выгоды</a></li>
-                    <li><a href="uslugi.html">Все услуги</a></li>
+                    <li><a href="services.html">Все услуги</a></li>
                     <li><a href="#faq">Вопросы и ответы</a></li>
                 </ul>
             </div>
@@ -764,7 +906,7 @@
 
 
 <!-- ============================================
-     SCRIPTS
+     SCRIPTS (100% сохранены)
      ============================================ -->
 <script src="js/config.js"></script>
 <script src="js/app.js"></script>

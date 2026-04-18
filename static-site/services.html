@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta (из texts.md §4 + §5) -->
+    <title>Услуги miniTES: энергосервис, электроснабжение, аренда мини-ТЭЦ</title>
+    <meta name="description" content="Полный спектр услуг: энергосервисный контракт (ЭСК), электроснабжение предприятия, аренда мини-ТЭЦ. Фиксированная цена кВт·ч, экономия до 40%. 44-ФЗ, 223-ФЗ.">
+    <meta name="keywords" content="энергосервисный контракт, электроснабжение предприятия, аренда мини тэц, энергосервис для предприятий, автономное электроснабжение, ESCO, EPC-контракт, 44-ФЗ энергосервис, 223-ФЗ энергосервис">
+    <meta name="author" content="miniTES">
+    <link rel="canonical" href="https://minites.ru/services.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://minites.ru/services.html">
+    <meta property="og:title" content="miniTES — Услуги: энергосервис, электроснабжение, аренда">
+    <meta property="og:description" content="Энергосервисный контракт: строим и обслуживаем мини-ТЭЦ за счёт экономии на тарифе. Электроснабжение предприятия под ключ.">
+    <meta property="og:locale" content="ru_RU">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Schema.org: Service + BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Service",
+                "serviceType": "Энергосервисный контракт",
+                "provider": {
+                    "@type": "Organization",
+                    "name": "miniTES",
+                    "url": "https://minites.ru"
+                },
+                "description": "Энергосервисный контракт (ЭСК): строим и обслуживаем мини-ТЭЦ за счёт экономии на тарифе. Вы платите из сэкономленных средств. Гарантия снижения затрат до 40%. 44-ФЗ, 223-ФЗ, 261-ФЗ.",
+                "areaServed": "RU",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "3.5",
+                    "priceCurrency": "RUB",
+                    "unitText": "кВт·ч"
+                }
+            },
+            {
+                "@type": "Service",
+                "serviceType": "Электроснабжение предприятия",
+                "provider": {
+                    "@type": "Organization",
+                    "name": "miniTES",
+                    "url": "https://minites.ru"
+                },
+                "description": "Полное электроснабжение предприятия: проект, стройка, аренда мини-ТЭЦ, сервис 24/7. Фиксированная цена кВт·ч. По всей РФ.",
+                "areaServed": "RU"
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Главная",
+                        "item": "https://minites.ru/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Услуги",
+                        "item": "https://minites.ru/services.html"
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+    
+    <!-- Scripts (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<!-- ============================================
+     NAVIGATION
+     ============================================ -->
+<nav class="navbar">
+    <div class="container">
+        <a href="index.html" class="navbar-brand">mini<span>TES</span></a>
+        
+        <ul class="navbar-nav">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="index.html#calculator">Калькулятор</a></li>
+            <li><a href="#energoservis">Энергосервис</a></li>
+            <li><a href="#electrosnabzhenie">Электроснабжение</a></li>
+            <li><a href="#faq">Вопросы</a></li>
+            <li><a href="contact.html" class="navbar-cta">Связаться</a></li>
+        </ul>
+        
+        <button class="hamburger" aria-label="Меню">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu">
+    <a href="index.html">Главная</a>
+    <a href="index.html#calculator">Калькулятор</a>
+    <a href="#energoservis">Энергосервис</a>
+    <a href="#electrosnabzhenie">Электроснабжение</a>
+    <a href="#faq">Вопросы и ответы</a>
+    <a href="contact.html">Контакты</a>
+</div>
+
+
+<!-- ============================================
+     HERO SECTION
+     ============================================ -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="fade-in-left">
+                <div class="hero-badge">Полный спектр услуг</div>
+                <h1>
+                    Услуги miniTES:<br>
+                    <span class="highlight">энергосервис</span> и <span class="highlight">электроснабжение</span> предприятия
+                </h1>
+                <p class="lead">
+                    Комплексные решения для вашего бизнеса: от энергосервисного контракта (ЭСК) до полного электроснабжения предприятия. 
+                    Один договор — фиксированная цена — экономия до 40%.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#energoservis" class="btn btn-primary btn-lg">Энергосервисный контракт</a>
+                    <a href="#electrosnabzhenie" class="btn btn-secondary btn-lg">Электроснабжение</a>
+                </div>
+            </div>
+            
+            <div class="fade-in-right">
+                <div style="background:white; border-radius:1rem; padding:2rem; box-shadow:var(--shadow-xl); border-left:4px solid var(--color-accent);">
+                    <p style="font-size:0.875rem; color:var(--color-text-muted); margin-bottom:0.5rem; text-transform:uppercase; letter-spacing:0.05em;">Сравнение моделей</p>
+                    <div style="display:flex; justify-content:space-between; font-size:0.875rem; margin-bottom:0.5rem;">
+                        <span style="color:var(--color-text-muted);">Энергосервис:</span>
+                        <strong style="color:var(--color-success);">от 3.5 ₽/кВт·ч</strong>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; font-size:0.875rem; margin-bottom:0.5rem;">
+                        <span style="color:var(--color-text-muted);">Аренда:</span>
+                        <strong style="color:var(--color-primary);">от 4.5 ₽/кВт·ч</strong>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; font-size:0.875rem;">
+                        <span style="color:var(--color-text-muted);">Сетевой тариф:</span>
+                        <strong style="color:var(--color-danger);">6–9 ₽/кВт·ч</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     ЭНЕРГОСЕРВИСНЫЙ КОНТРАКТ (из texts.md §4)
+     ============================================ -->
+<section class="section" id="energoservis">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="label">Энергосервис</span>
+            <h2>Энергосервисный контракт: снижение затрат на электроэнергию без ваших инвестиций</h2>
+            <p><strong>Энергосервисный контракт (ЭСК)</strong> — это модель финансирования, при которой мы строим и обслуживаем мини-ТЭЦ <strong>за счёт экономии</strong> на вашем тарифе на электроэнергию. Вы не вкладываете ни рубля из бюджета.</p>
+        </div>
+        
+        <!-- Что такое ЭСК -->
+        <div class="services-grid stagger-children" style="margin-bottom:3rem;">
+            <div class="service-card">
+                <div class="service-icon">📜</div>
+                <h3>Законодательство: 44-ФЗ, 223-ФЗ, 261-ФЗ</h3>
+                <p>Энергосервисный контракт регулируется тремя федеральными законами: <strong>261-ФЗ</strong> «Об энергосбережении» — определяет правовые основы энергосервиса, <strong>44-ФЗ</strong> — для государственных и муниципальных учреждений, <strong>223-ФЗ</strong> — для компаний с государственным участием.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🏗️</div>
+                <h3>Модель EPC (Engineering, Procurement, Construction)</h3>
+                <p>Мы берём на себя весь цикл: проектирование, закупку оборудования, строительство и ввод в эксплуатацию. Вы получаете готовый результат — дешёвое электричество — без капитальных затрат.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">📋</div>
+                <h3>Performance contract — оплата за результат</h3>
+                <p><strong>Performance contract</strong> означает, что вы платите за результат, а не за процесс. Если экономия не достигается — мы несём финансовые потери, а не вы. <strong>ESCO модель</strong> — международная практика энергосервисных компаний.</p>
+            </div>
+        </div>
+        
+        <!-- Как работает ЭСК -->
+        <div class="section-header fade-in">
+            <h3>Как работает энергосервис с miniTES</h3>
+        </div>
+        
+        <div class="steps-grid" style="margin-bottom:3rem;">
+            <div class="step-card fade-in">
+                <div class="step-number">1</div>
+                <h3>Аудит текущего потребления</h3>
+                <p><strong>Энергетическое обследование</strong> — обязательный этап перед ЭСК. Мы анализируем ваши счета за электроэнергию, профиль нагрузки, режим работы предприятия. Определяем потенциал экономии.</p>
+            </div>
+            <div class="step-card fade-in">
+                <div class="step-number">2</div>
+                <h3>Проектирование мини-ТЭЦ</h3>
+                <p>Подбираем оптимальную мощность, тип газопоршневой установки, схему подключения. Готовим проектную документацию.</p>
+            </div>
+            <div class="step-card fade-in">
+                <div class="step-number">3</div>
+                <h3>Строительство за наш счёт</h3>
+                <p>Мы проходим 15+ инстанций согласований, закупаем оборудование, строим и запускаем станцию. Вы не тратите ни рубля.</p>
+            </div>
+            <div class="step-card fade-in">
+                <div class="step-number">4</div>
+                <h3>Вы платите из экономии</h3>
+                <p>После запуска мини-ТЭЦ вы платите за электричество по нашему тарифу — на 30–40% ниже сетевого. Разница между старым и новым тарифом идёт на погашение наших инвестиций.</p>
+            </div>
+        </div>
+        
+        <!-- Сравнение моделей -->
+        <div class="fade-in" style="background:white; border-radius:1rem; padding:2rem; box-shadow:var(--shadow-xl); margin-bottom:3rem;">
+            <h3 style="margin-bottom:1.5rem;">Сравнение моделей: ЭСК vs Аренда vs Покупка vs Сеть</h3>
+            <div style="overflow-x:auto;">
+                <table style="width:100%; border-collapse:collapse; font-size:0.9375rem;">
+                    <thead>
+                        <tr style="border-bottom:2px solid var(--color-border);">
+                            <th style="padding:0.75rem; text-align:left;">Критерий</th>
+                            <th style="padding:0.75rem; text-align:center; color:var(--color-success);">ЭСК</th>
+                            <th style="padding:0.75rem; text-align:center;">Аренда</th>
+                            <th style="padding:0.75rem; text-align:center;">Покупка</th>
+                            <th style="padding:0.75rem; text-align:center;">Сеть</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom:1px solid var(--color-border);">
+                            <td style="padding:0.75rem;">Вложения</td>
+                            <td style="padding:0.75rem; text-align:center; color:var(--color-success); font-weight:700;">0 ₽</td>
+                            <td style="padding:0.75rem; text-align:center;">0 ₽</td>
+                            <td style="padding:0.75rem; text-align:center;">15–50 млн ₽</td>
+                            <td style="padding:0.75rem; text-align:center;">0 ₽</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--color-border);">
+                            <td style="padding:0.75rem;">Тариф</td>
+                            <td style="padding:0.75rem; text-align:center; color:var(--color-success); font-weight:700;">от 3.5 ₽/кВт·ч</td>
+                            <td style="padding:0.75rem; text-align:center;">от 4.5 ₽/кВт·ч</td>
+                            <td style="padding:0.75rem; text-align:center;">от 3.0 ₽/кВт·ч</td>
+                            <td style="padding:0.75rem; text-align:center;">6–9 ₽/кВт·ч</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--color-border);">
+                            <td style="padding:0.75rem;">Кто инвестирует</td>
+                            <td style="padding:0.75rem; text-align:center;">Мы</td>
+                            <td style="padding:0.75rem; text-align:center;">Мы</td>
+                            <td style="padding:0.75rem; text-align:center;">Вы</td>
+                            <td style="padding:0.75rem; text-align:center;">Н/Д</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--color-border);">
+                            <td style="padding:0.75rem;">Риски</td>
+                            <td style="padding:0.75rem; text-align:center; color:var(--color-success); font-weight:700;">Наши</td>
+                            <td style="padding:0.75rem; text-align:center; color:var(--color-success); font-weight:700;">Наши</td>
+                            <td style="padding:0.75rem; text-align:center;">Ваши</td>
+                            <td style="padding:0.75rem; text-align:center;">Цена растёт</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:0.75rem;">Для кого</td>
+                            <td style="padding:0.75rem; text-align:center;">Госкомпании, бюджетники</td>
+                            <td style="padding:0.75rem; text-align:center;">Любой бизнес</td>
+                            <td style="padding:0.75rem; text-align:center;">Уверенные инвесторы</td>
+                            <td style="padding:0.75rem; text-align:center;">Все</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Кто подходит -->
+        <div class="fade-in" style="margin-bottom:3rem;">
+            <h3 style="margin-bottom:1rem;">Кто подходит для энергосервисного контракта?</h3>
+            <div class="problem-grid stagger-children">
+                <div class="problem-card">
+                    <div class="problem-icon">🏛️</div>
+                    <h3>Государственные учреждения (44-ФЗ)</h3>
+                    <p>Больницы, школы, администрации — где бюджетное финансирование не позволяет капитальные вложения, но есть растущие счета за электричество.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🏢</div>
+                    <h3>Компании с госучастием (223-ФЗ)</h3>
+                    <p>МУПы, ГУПы, акционерные общества — где требуется соблюдение процедур закупок и гарантия экономии.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🏭</div>
+                    <h3>Крупные промышленные холдинги</h3>
+                    <p>С потреблением от 500 кВт·ч — где важна стабильность энергоснабжения и прогнозируемость затрат.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Гарантии и риски -->
+        <div class="fade-in" style="background:var(--color-bg-light); border-radius:1rem; padding:2rem;">
+            <h3 style="margin-bottom:1rem;">Риски и гарантии</h3>
+            <ul style="list-style:none; padding:0;">
+                <li style="padding:0.5rem 0; border-bottom:1px solid var(--color-border);">
+                    <strong>Гарантия экономии:</strong> если мы не обеспечиваем заявленное снижение тарифа — компенсируем разницу
+                </li>
+                <li style="padding:0.5rem 0; border-bottom:1px solid var(--color-border);">
+                    <strong>Фиксация цены:</strong> тариф на электроэнергию фиксируется в договоре на весь срок контракта
+                </li>
+                <li style="padding:0.5rem 0; border-bottom:1px solid var(--color-border);">
+                    <strong>Оборудование в нашей ответственности:</strong> мы отвечаем за работоспособность станции 24/7
+                </li>
+                <li style="padding:0.5rem 0;">
+                    <strong>Выход из контракта:</strong> условия расторжения прописаны в договоре — никаких скрытых штрафов
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     ЭЛЕКТРОСНАБЖЕНИЕ ПРЕДПРИЯТИЯ (из texts.md §5)
+     ============================================ -->
+<section class="section section-alt" id="electrosnabzhenie">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="label">Электроснабжение</span>
+            <h2>Электроснабжение предприятия: стабильное электричество по цене ниже сетевого</h2>
+            <p><strong>Электроснабжение предприятия</strong> от miniTES — это комплексное решение, при котором вы получаете стабильное и дешёвое электричество по <strong>фиксированной цене</strong>, ниже сетевого тарифа на 30–40%.</p>
+        </div>
+        
+        <!-- Электроснабжение как услуга -->
+        <div class="services-grid stagger-children" style="margin-bottom:3rem;">
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Генерация (мини-ТЭЦ на вашем объекте)</h3>
+                <p>Газопоршневая установка размещается на вашей территории или рядом. Мы подбираем мощность под ваш профиль нагрузки — от 200 кВт до нескольких мегаватт.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🔄</div>
+                <h3>Резервирование (гарантия бесперебойности)</h3>
+                <p>Параллельная работа с сетью гарантирует бесперебойность. Если наша станция останавливается — вы автоматически переключаетесь на сеть. <strong>Балансировка мощности</strong> обеспечивает стабильность частоты и напряжения.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Обслуживание (24/7 мониторинг, ремонт, запчасти)</h3>
+                <p>Дистанционный мониторинг параметров работы, плановое ТО, аварийный ремонт, поставка запчастей. Вы забываете о существовании станции — она просто работает.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">📋</div>
+                <h3>Администрирование (отчётность, ФАС, согласования)</h3>
+                <p>Технические условия, согласования с ФАС, отчётность для надзорных органов, регистрация генерирующего объекта. Мы проходим все инстанции вместо вас.</p>
+            </div>
+        </div>
+        
+        <!-- Когда выгодно -->
+        <div class="fade-in" style="margin-bottom:3rem;">
+            <h3 style="margin-bottom:1rem;">Когда электроснабжение от miniTES выгоднее сетевого?</h3>
+            <div class="problem-grid stagger-children">
+                <div class="problem-card">
+                    <div class="problem-icon">📊</div>
+                    <h3>Потребление от 150–200 кВт</h3>
+                    <p>Экономический смысл появляется при этом уровне потребления. Ниже — честно скажем, что не выгодно.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🕐</div>
+                    <h3>2–3 смены работы</h3>
+                    <p>Чем больше нагрузка — тем быстрее окупаемость. Круглогодичный режим — идеальный вариант.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">💰</div>
+                    <h3>Высокий сетевой тариф в регионе</h3>
+                    <p>От 6 ₽/кВт·ч и выше — наша генерация значительно дешевле. Чем выше сетевой — тем больше наша выгода.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Сравнение вариантов -->
+        <div class="fade-in" style="background:white; border-radius:1rem; padding:2rem; box-shadow:var(--shadow-xl); margin-bottom:3rem;">
+            <h3 style="margin-bottom:1.5rem;">Сравнение: miniTES vs собственная станция vs сетевое подключение vs дизель-генератор</h3>
+            <div style="overflow-x:auto;">
+                <table style="width:100%; border-collapse:collapse; font-size:0.9375rem;">
+                    <thead>
+                        <tr style="border-bottom:2px solid var(--color-border);">
+                            <th style="padding:0.75rem; text-align:left;">Критерий</th>
+                            <th style="padding:0.75rem; text-align:center; color:var(--color-success);">miniTES</th>
+                            <th style="padding:0.75rem; text-align:center;">Своя станция</th>
+                            <th style="padding:0.75rem; text-align:center;">Сеть</th>
+                            <th style="padding:0.75rem; text-align:center;">Дизель-генератор</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom:1px solid var(--color-border);">
+                            <td style="padding:0.75rem;">Вложения</td>
+                            <td style="padding:0.75rem; text-align:center; color:var(--color-success); font-weight:700;">0 ₽</td>
+                            <td style="padding:0.75rem; text-align:center;">15–50 млн ₽</td>
+                            <td style="padding:0.75rem; text-align:center;">0 ₽</td>
+                            <td style="padding:0.75rem; text-align:center;">1–5 млн ₽</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--color-border);">
+                            <td style="padding:0.75rem;">Цена кВт·ч</td>
+                            <td style="padding:0.75rem; text-align:center; color:var(--color-success); font-weight:700;">4.0–4.5 ₽</td>
+                            <td style="padding:0.75rem; text-align:center;">2.5–3.5 ₽</td>
+                            <td style="padding:0.75rem; text-align:center;">6–9 ₽</td>
+                            <td style="padding:0.75rem; text-align:center;">12–18 ₽</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--color-border);">
+                            <td style="padding:0.75rem;">Надёжность</td>
+                            <td style="padding:0.75rem; text-align:center; color:var(--color-success); font-weight:700;">Высокая (резерв)</td>
+                            <td style="padding:0.75rem; text-align:center;">Зависит от вас</td>
+                            <td style="padding:0.75rem; text-align:center;">Зависит от сетей</td>
+                            <td style="padding:0.75rem; text-align:center;">Только резерв</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--color-border);">
+                            <td style="padding:0.75rem;">Обслуживание</td>
+                            <td style="padding:0.75rem; text-align:center; color:var(--color-success); font-weight:700;">Мы</td>
+                            <td style="padding:0.75rem; text-align:center;">Вы сами</td>
+                            <td style="padding:0.75rem; text-align:center;">Н/Д</td>
+                            <td style="padding:0.75rem; text-align:center;">Вы сами</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--color-border);">
+                            <td style="padding:0.75rem;">Экология</td>
+                            <td style="padding:0.75rem; text-align:center; color:var(--color-success); font-weight:700;">Газ (чисто)</td>
+                            <td style="padding:0.75rem; text-align:center;">Газ</td>
+                            <td style="padding:0.75rem; text-align:center;">Н/Д</td>
+                            <td style="padding:0.75rem; text-align:center;">Дизель (грязно)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:0.75rem;">Масштабируемость</td>
+                            <td style="padding:0.75rem; text-align:center; color:var(--color-success); font-weight:700;">Да</td>
+                            <td style="padding:0.75rem; text-align:center;">Сложно</td>
+                            <td style="padding:0.75rem; text-align:center;">Нет</td>
+                            <td style="padding:0.75rem; text-align:center;">Ограничено</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Отрасли -->
+        <div class="fade-in" style="margin-bottom:3rem;">
+            <h3 style="margin-bottom:1rem;">Отрасли, для которых мы решаем задачи электроснабжения</h3>
+            <div class="services-grid stagger-children">
+                <div class="service-card">
+                    <div class="service-icon">🏭</div>
+                    <h3>Промышленные предприятия</h3>
+                    <p>Машиностроение, металлообработка, химия, пищевое производство — стабильное электроснабжение по фиксированной цене.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌱</div>
+                    <h3>Теплицы и агрокомплексы</h3>
+                    <p>Круглогодичное энергоснабжение + тепло от утилизации для отопления. Окупаемость 24 месяца.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>ЖКХ и жилые комплексы</h3>
+                    <p>Автономное электроснабжение микрорайонов — снижение тарифа для жителей на 30–40%.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛒</div>
+                    <h3>Торговые центры</h3>
+                    <p>Снижение операционных расходов — электричество дешевле, стабильность выше.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌾</div>
+                    <h3>Сельское хозяйство</h3>
+                    <p>Энергоснабжение ферм, хранилищ, переработки — независимость от сетевых ограничений.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⛏️</div>
+                    <h3>Горнодобывающие объекты</h3>
+                    <p>Удалённые площадки без развитой сетевой инфраструктуры — автономное электроснабжение.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Автономное vs сетевое -->
+        <div class="fade-in" style="background:var(--color-bg-light); border-radius:1rem; padding:2rem;">
+            <h3 style="margin-bottom:1rem;">Автономное электроснабжение vs сетевое подключение</h3>
+            <p style="margin-bottom:1rem;">Сетевое подключение — это зависимость от монополии. Тариф растёт каждый год, качество электроэнергии не гарантируется, а альтернатив нет. <strong>Автономное электроснабжение</strong> через мини-ТЭЦ даёт:</p>
+            <ul style="list-style:none; padding:0;">
+                <li style="padding:0.5rem 0; border-bottom:1px solid var(--color-border);">✅ Фиксированную цену на весь срок договора</li>
+                <li style="padding:0.5rem 0; border-bottom:1px solid var(--color-border);">✅ Независимость от роста сетевых тарифов</li>
+                <li style="padding:0.5rem 0; border-bottom:1px solid var(--color-border);">✅ Стабильное напряжение без просадок</li>
+                <li style="padding:0.5rem 0; border-bottom:1px solid var(--color-border);">✅ Тепло от утилизации — в производство или отопление</li>
+                <li style="padding:0.5rem 0;">✅ Резервирование через параллельную работу с сетью</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     CTA SECTION
+     ============================================ -->
+<section class="cta-section section" id="cta">
+    <div class="container">
+        <div class="fade-in" style="max-width:600px; margin:0 auto; text-align:center;">
+            <h2>Получите предложение по электроснабжению</h2>
+            <p>Оставьте контакты — подготовим индивидуальный расчёт с точными цифрами по вашему объекту. Без обязательств.</p>
+            <div style="margin-top:2rem;">
+                <a href="contact.html" class="btn btn-primary btn-lg">Оставить заявку →</a>
+                <a href="index.html#calculator" class="btn btn-secondary btn-lg" style="margin-left:1rem;">Калькулятор</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     FAQ
+     ============================================ -->
+<section class="section section-alt" id="faq">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="label">Честно</span>
+            <h2>Вопросы об энергосервисе и электроснабжении</h2>
+            <p>Мы отвечаем прямо — без маркетинговой воды.</p>
+        </div>
+        
+        <div class="faq-list">
+            <div class="faq-item fade-in">
+                <button class="faq-question">Что такое энергосервисный контракт простыми словами?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>ЭСК — это модель, при которой мы строим и обслуживаем мини-ТЭЦ за счёт экономии на тарифе. Вы платите из сэкономленных средств, без капитальных вложений. Работает по 44-ФЗ, 223-ФЗ, 261-ФЗ.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <button class="faq-question">Какой тариф на электроэнергию для юридических лиц выгоднее?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Собственная генерация через аренду мини-ТЭЦ даёт тариф 4.0–4.5 ₽/кВт·ч vs 6–9 ₽/кВт·ч у сетевых компаний. Фиксированная цена на весь срок договора. <strong>Поставщик электроэнергии для юридических лиц</strong> miniTES — альтернатива сетевым компаниям.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <button class="faq-question">Что такое энергоснабжение на аутсорсинге?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Вы передаёте функцию энергоснабжения внешнему подрядчику (miniTES). Мы становимся вашим <strong>альтернативным поставщиком электроэнергии</strong>. Вы получаете один договор вместо десятка согласований, фиксированный бюджет на электроэнергию и ответственность одного подрядчика за всё.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <button class="faq-question">Подходит ли энергосервис для частного бизнеса?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Энергосервисный контракт по 44-ФЗ/223-ФЗ — для госкомпаний и бюджетников. Для частного бизнеса мы предлагаем аренду мини-ТЭЦ — те же преимущества, но без ограничений по форме собственности.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <button class="faq-question">Как обеспечивается бесперебойность электроснабжения?</button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Параллельная работа с сетью: если наша станция останавливается — вы автоматически переключаетесь на сеть. Ваше производство не стоит ни секунды. Дистанционный мониторинг 24/7 позволяет обнаруживать и устранять проблемы до их влияния на работу.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <a href="index.html" class="footer-brand">mini<span>TES</span></a>
+                <p>Электричество для вашего бизнеса на 30–40% дешевле сетевого тарифа. Мини-ТЭЦ под ключ: аренда, энергосервис, строительство.</p>
+            </div>
+            
+            <div>
+                <h4>Услуги</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#options">Аренда мини-ТЭС</a></li>
+                    <li><a href="index.html#options">Аренда с выкупом</a></li>
+                    <li><a href="#energoservis">Энергосервис</a></li>
+                    <li><a href="#electrosnabzhenie">Электроснабжение</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4>Инструменты</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#calculator">Калькулятор выгоды</a></li>
+                    <li><a href="index.html#faq">Вопросы и ответы</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4>Контакты</h4>
+                <ul class="footer-links">
+                    <li><a href="mailto:info@minites.ru">info@minites.ru</a></li>
+                    <li><a href="contact.html">Форма обратной связи</a></li>
+                    <li><a href="contact.html">Отправить запрос</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2026 miniTES. Все права защищены.</p>
+        </div>
+    </div>
+</footer>
+
+
+<!-- ============================================
+     SCRIPTS (100% сохранены)
+     ============================================ -->
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+<script src="js/github-forms.js"></script>
+<script src="js/equipment.js"></script>
+<script src="js/calculator.js"></script>
+
+</body>
+</html>

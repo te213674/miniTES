@@ -100,7 +100,7 @@ static-site/
 ## Важные примечания
 
 ### Токен GitHub API
-- **Токен:** `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`
+- **Токен:** [УДАЛЕНО ИЗ БЕЗОПАСНОСТИ]
 - **Хранение:** `static-site/js/config.js` (в `.gitignore`)
 - **Права:** `repo` (доступ к Issues)
 - **Важно:** Не коммитить `config.js` с токеном в репозиторий!
