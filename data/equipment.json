@@ -1,0 +1,45 @@
+{
+  "equipment": [
+    {
+      "id": 1,
+      "name": "Doosan 200",
+      "manufacturer": "Doosan",
+      "power_kw": 200,
+      "gas_consumption_per_kwh": 0.3,
+      "purchase_price": 6000000,
+      "rent_rate_month": 150000,
+      "service_cost_per_kwh": 1.4,
+      "investor_rate_month": 250000,
+      "contractor_rate_month": 150000
+    },
+    {
+      "id": 2,
+      "name": "Doosan 250",
+      "manufacturer": "Doosan",
+      "power_kw": 250,
+      "gas_consumption_per_kwh": 0.3,
+      "purchase_price": 7500000,
+      "rent_rate_month": 187500,
+      "service_cost_per_kwh": 1.4,
+      "investor_rate_month": 300000,
+      "contractor_rate_month": 180000
+    },
+    {
+      "id": 3,
+      "name": "ТМЗ 200",
+      "manufacturer": "ТМЗ",
+      "power_kw": 200,
+      "gas_consumption_per_kwh": 0.3,
+      "purchase_price": 5500000,
+      "rent_rate_month": 137500,
+      "service_cost_per_kwh": 1.4,
+      "investor_rate_month": 250000,
+      "contractor_rate_month": 150000
+    }
+  ],
+  "mining_config": {
+    "power_kw": 100,
+    "revenue_per_kwh": 3.5,
+    "capex_per_kw": 50000
+  }
+}

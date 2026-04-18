@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /js/
+Disallow: /css/
+Disallow: /data/
+
+Sitemap: https://minites.ru/sitemap.xml
+
+Host: minites.ru

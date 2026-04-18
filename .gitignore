@@ -2,7 +2,7 @@
 .env
 *.env
 ADD_TOKEN_SECRET.md
-static-site/js/config.js
+js/config.js
 
 # OS files
 .DS_Store
