@@ -162,5 +162,54 @@
 
 ---
 
+## ⚠️ ВАЖНЫЕ УРОКИ ПО SHELL КОМАНДАМ (Windows)
+
+### Проблема: PowerShell НЕ поддерживает `&&`
+
+**НЕ РАБОТАЕТ:**
+```powershell
+git add -A && git commit -m "message"
+# Ошибка: Лексема "&&" не является допустимым разделителем операторов
+```
+
+**РАБОТАЕТ:**
+```powershell
+# Вариант 1: Использовать ; (точка с запятой)
+git add -A; git commit -m "message"
+
+# Вариант 2: Использовать cmd /c
+cmd /c "git add -A && git commit -m 'message'"
+```
+
+### Шпаргалка по командам
+
+| Задача | PowerShell | cmd |
+|--------|------------|-----|
+| Цепочка команд | `cmd1; cmd2` | `cmd1 && cmd2` |
+| Поиск в выводе | `command \| findstr "text"` | `command \| findstr "text"` |
+| Просмотр файла | `type file.txt` | `type file.txt` |
+| Удаление файла | `Remove-Item file.txt` | `del file.txt` |
+
+### Git команды - правильный синтаксис
+
+```powershell
+# ✅ Правильно для PowerShell:
+git add -A; git commit -m "message"; git push
+git log --oneline -5
+git status
+git rm --cached file.txt
+git ls-files | findstr "pattern"
+
+# ❌ НЕ работает в PowerShell:
+git add -A && git commit -m "message"
+```
+
+### Запомнить:
+1. **PowerShell использует `;` для разделения команд**, не `&&`
+2. **Если нужен `&&` — оборачивай в `cmd /c "..."`**
+3. **`findstr` работает в обоих оболочках одинаково**
+
+---
+
 *Документ обновлен: 13.04.2026*
 *На основе: competitor_analysis_final.md, анализ инструментов конкурентов*
